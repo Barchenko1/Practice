@@ -3,7 +3,9 @@ package com.example.practice.dao.impl;
 import com.example.practice.dao.BookDao;
 import com.example.practice.model.Address;
 import com.example.practice.model.Book;
+import com.example.practice.model.Customer;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,6 +20,8 @@ import static java.util.Objects.isNull;
 public class BookDaoImpl implements BookDao {
 
     private static final String FIND_ALL_BOOKS = "SELECT * from Books";
+    private static final String FIND_BOOK = "SELECT * from Books where title = ?";
+
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -63,10 +67,20 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> findAllBooks() {
-        Query query = sessionFactory.getCurrentSession().createQuery(FIND_ALL_BOOKS);
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_ALL_BOOKS);
         if (query.list().isEmpty()) {
             return null;
         }
-        return (List<Book>) query.list();
+        return (List<Book>) query.addEntity(Book.class).list();
+    }
+
+    @Override
+    public Book findBookByTitle(String title) {
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_BOOK);
+        query.setParameter(1, title);
+        if (isNull(query.getSingleResult())) {
+            return null;
+        }
+        return (Book) query.addEntity(Book.class).getSingleResult();
     }
 }

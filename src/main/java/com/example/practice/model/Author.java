@@ -1,5 +1,7 @@
 package com.example.practice.model;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,11 +11,17 @@ public class Author {
     @Column(name="author_id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long author_id;
+    @NotNull
     private String f_name;
+    @NotNull
     private String l_name;
     private int age;
+    @NotNull
     private String email;
+    @NotNull
     private String phone;
+    @NotNull
+    private String card_code;
 
     public Author() {
     }
@@ -64,5 +72,13 @@ public class Author {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getCard_code() {
+        return card_code;
+    }
+
+    public void setCard_code(String card_code) {
+        this.card_code = card_code;
     }
 }

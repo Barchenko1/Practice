@@ -14,23 +14,27 @@ public class BookController {
     private BookService bookService;
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void createCustomer(@RequestBody Book book) {
+    public void createBook(@RequestBody Book book) {
         bookService.createBook(book);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public void updateCustomer(@RequestBody Book book) {
+    public void updateBook(@RequestBody Book book) {
         bookService.updateBook(book);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public void deleteCustomer(@RequestBody Book book) {
+    public void deleteBook(@RequestBody Book book) {
         bookService.removeBook(book);
     }
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public List<Book> findAllCustomers() {
+    public List<Book> findBooks() {
         return bookService.findAllBooks();
     }
 
+    @RequestMapping(value = "/find/{title}", method = RequestMethod.GET)
+    public Book findBookByTitle(@PathVariable("title") String title) {
+        return bookService.findBookByTitle(title);
+    }
 }
