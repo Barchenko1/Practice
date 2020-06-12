@@ -1,8 +1,14 @@
 package com.example.practice.model;
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Authors")
@@ -22,6 +28,16 @@ public class Author {
     private String phone;
     @NotNull
     private String card_code;
+
+    @OneToMany(
+            mappedBy = "author",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            orphanRemoval = true
+    )
+    @Fetch(FetchMode.SELECT)
+    @BatchSize(size = 30)
+    private List<Title> titles = new ArrayList<>();
 
     public Author() {
     }
@@ -80,5 +96,13 @@ public class Author {
 
     public void setCard_code(String card_code) {
         this.card_code = card_code;
+    }
+
+    public List<Title> getTitles() {
+        return titles;
+    }
+
+    public void setTitles(List<Title> titles) {
+        this.titles = titles;
     }
 }

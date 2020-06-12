@@ -14,17 +14,17 @@ public class AuthorController {
     @Autowired
     private AuthorService authorService;
 
-    @PostMapping(value = "/create")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void createAuthor(@RequestBody Author author) {
         authorService.createAuthor(author);
     }
 
-    @PutMapping(value = "/update")
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public void updateAuthor(@RequestBody Author author) {
         authorService.updateAuthor(author);
     }
 
-    @DeleteMapping(value = "/delete")
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public void deleteAuthor(@RequestBody Author author) {
         authorService.removeAuthor(author);
     }

@@ -66,9 +66,10 @@ public class AuthorDaoImpl implements AuthorDao {
     @Override
     public List<Author> findAllAuthors() {
         NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_ALL_CUSTOMERS);
-        if (query.list().isEmpty()) {
+        List<Author> authorList = (List<Author>) query.addEntity(Author.class).getResultList();
+        if (authorList.isEmpty()) {
             return null;
         }
-        return (List<Author>) query.addEntity(Author.class).list();
+        return authorList;
     }
 }

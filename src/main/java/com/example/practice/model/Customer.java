@@ -1,6 +1,12 @@
 package com.example.practice.model;
 
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Customers")
@@ -17,18 +23,17 @@ public class Customer {
     private String email;
     private String phone;
 
-    public Customer() {
-    }
+    @OneToMany(
+            mappedBy = "customer",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            orphanRemoval = true
+    )
+    @Fetch(FetchMode.SELECT)
+    @BatchSize(size = 30)
+    private List<Order> customers = new ArrayList<>();
 
-    public Customer(Long customer_id, String f_name, String l_name, int age, String login, String password, String email, String phone) {
-        this.customer_id = customer_id;
-        this.f_name = f_name;
-        this.l_name = l_name;
-        this.age = age;
-        this.login = login;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
+    public Customer() {
     }
 
     public Long getCustomer_id() {
@@ -93,5 +98,13 @@ public class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public List<Order> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Order> customers) {
+        this.customers = customers;
     }
 }

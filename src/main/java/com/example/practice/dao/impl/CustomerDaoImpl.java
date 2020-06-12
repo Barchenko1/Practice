@@ -69,19 +69,21 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public List<Customer> findAllCustomers() {
         NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_ALL_CUSTOMERS);
-        if (query.list().isEmpty()) {
+        List<Customer> customerList = (List<Customer>) query.addEntity(Customer.class).getResultList();
+        if (customerList.isEmpty()) {
             return null;
         }
-        return (List<Customer>) query.addEntity(Customer.class).list();
+        return customerList;
     }
 
     @Override
     public Customer finByLogin(String login) {
         NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_CUSTOMER);
         query.setParameter(1, login);
-        if (isNull(query.getSingleResult())) {
+        Customer customer = (Customer) query.addEntity(Customer.class).getSingleResult();
+        if (isNull(customer)) {
             return null;
         }
-        return (Customer) query.addEntity(Customer.class).getSingleResult();
+        return customer;
     }
 }

@@ -1,6 +1,12 @@
 package com.example.practice.model;
 
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Addresses")
@@ -17,6 +23,16 @@ public class Address {
     private String house;
 
     private String flat;
+
+    @OneToMany(
+            mappedBy = "address",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            orphanRemoval = true
+    )
+    @Fetch(FetchMode.SELECT)
+    @BatchSize(size = 30)
+    private List<Order> addresses = new ArrayList<>();
 
     public Address() {
     }
@@ -59,5 +75,13 @@ public class Address {
 
     public void setFlat(String flat) {
         this.flat = flat;
+    }
+
+    public List<Order> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Order> addresses) {
+        this.addresses = addresses;
     }
 }

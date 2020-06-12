@@ -13,17 +13,17 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @PostMapping(value = "/create")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void createCustomer(@RequestBody Customer customer) {
         customerService.createCustomer(customer);
     }
 
-    @PutMapping(value = "/update")
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public void updateCustomer(@RequestBody Customer customer) {
         customerService.updateCustomer(customer);
     }
 
-    @DeleteMapping(value = "/delete")
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public void deleteCustomer(@RequestBody Customer customer) {
         customerService.removeCustomer(customer);
     }

@@ -3,6 +3,7 @@ package com.example.practice.dao.impl;
 import com.example.practice.dao.AddressDao;
 import com.example.practice.model.Address;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -62,11 +63,12 @@ public class AddressDaoImpl implements AddressDao {
 
     @Override
     public List<Address> findAllAddresses() {
-        Query query = sessionFactory.getCurrentSession().createQuery(FIND_ALL_ADDRESSES);
-        if (query.list().isEmpty()) {
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_ALL_ADDRESSES);
+        List<Address> addressList = (List<Address>) query.getResultList();
+        if (addressList.isEmpty()) {
             return null;
         }
-        return (List<Address>) query.list();
+        return addressList;
     }
 
 }

@@ -1,16 +1,17 @@
-package com.example.practice.dao;
+package com.example.practice.service;
 
 import com.example.practice.model.TestDto;
 import com.example.practice.model.Title;
 
 import java.util.List;
 
-public interface TitleDao {
+public interface TitleService {
     void createTitle(Title title);
 
-    void updateTitle(Title title);
+    void updateBook(Title title);
 
-    void removeTitle(Title title);
+    void removeBook(Title title);
 
     List<Object> findAllTitles();
+
 }

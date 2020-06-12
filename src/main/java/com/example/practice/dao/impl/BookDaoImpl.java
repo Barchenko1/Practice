@@ -68,10 +68,11 @@ public class BookDaoImpl implements BookDao {
     @Override
     public List<Book> findAllBooks() {
         NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_ALL_BOOKS);
-        if (query.list().isEmpty()) {
+        List<Book> bookList = (List<Book>) query.addEntity(Book.class).getResultList();
+        if (bookList.isEmpty()) {
             return null;
         }
-        return (List<Book>) query.addEntity(Book.class).list();
+        return bookList;
     }
 
     @Override
