@@ -1,10 +1,10 @@
 package com.example.practice.controller;
 
 import com.example.practice.model.Author;
-import com.example.practice.model.Customer;
 import com.example.practice.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -13,6 +13,13 @@ import java.util.List;
 public class AuthorController {
     @Autowired
     private AuthorService authorService;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    protected ModelAndView pageGet() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("authorPage");
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void createAuthor(@RequestBody Author author) {

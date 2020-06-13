@@ -1,8 +1,7 @@
 package com.example.practice.controller;
 
-import com.example.practice.model.Customer;
-import com.example.practice.model.TestDto;
 import com.example.practice.model.Title;
+import com.example.practice.service.OrderService;
 import com.example.practice.service.TitleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,25 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @RestController
-@RequestMapping("/title")
-public class TitleController {
+@RequestMapping("/order")
+public class OrderController {
     @Autowired
-    private TitleService titleService;
+    private OrderService orderService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     protected ModelAndView pageGet() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("titlePage");
+        modelAndView.setViewName("orderPage");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void createCustomer(@RequestBody Title title) {
-        titleService.createTitle(title);
-    }
-
-    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public List<Object> findAllTitles() {
-        return titleService.findAllTitles();
-    }
 }

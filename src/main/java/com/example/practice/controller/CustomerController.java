@@ -4,6 +4,7 @@ import com.example.practice.model.Customer;
 import com.example.practice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -12,6 +13,13 @@ import java.util.List;
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    protected ModelAndView pageGet() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("customerPage");
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void createCustomer(@RequestBody Customer customer) {

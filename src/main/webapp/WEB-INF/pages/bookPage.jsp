@@ -11,8 +11,7 @@
     <title>Books Page</title>
 </head>
 <body>
-    <h5 class="logo-text-color text-center p-3">ІС "Книжная редакция"</h5>
-    <p>lalala1</p>
-    <p>лалала2</p>
+    <h5 class="logo-text-color text-center p-3">Наши книги</h5>
+    <jsp:include page="navigateBar.jsp" />
 </body>
 </html>

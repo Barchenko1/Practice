@@ -16,14 +16,12 @@
     <hr>
     <ul class="h5">
         <li class=""><a href="/">СТАТИСТИКА</a></li>
-        <li class="active"><a href="/query">ЗАПИТ</a></li>
-        <li class=""><a href="/f_set/list">НАБІР</a></li>
-        <li class=""><a href="/f_sets/list">НАБОРИ</a></li>
-        <li class=""><a href="/entity/list">О МЕБЕЛІ</a></li>
-        <li class=""><a href="/f_type/list">ВИД</a></li>
-        <li class=""><a href="/f_maker/list">ВИРОБНИК</a></li>
-        <li class=""><a href="/f_material/list">МАТЕРІАЛ</a></li>
-        <li class=""><a href="/f_sales/list">ПРОДАЖІ</a></li>
+        <li class="active"><a href="/book/">КНИГИ</a></li>
+        <li class=""><a href="/author/">АВТОРЫ</a></li>
+        <li class=""><a href="/title/">О КНИГАХ</a></li>
+        <li class=""><a href="/f_maker/list">Адрессаты</a></li>
+        <li class=""><a href="/order/">ЗАКАЗЫ</a></li>
+        <li class=""><a href="/customer/">ЗАКАЗЧИКИ</a></li>
     </ul>
     <hr>
 </nav>
