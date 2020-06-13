@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<nav class="col-12 col-md-3 col-lg-2 col-xl-1 p-0 vh-100">
+<nav class="col-12 col-md-3 col-lg-2 p-0 vh-100">
     <h5 class="logo-text-color text-center p-3">ІС "Книжная редакция"</h5>
     <hr>
     <ul class="h5">
