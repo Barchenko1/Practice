@@ -11,7 +11,28 @@
     <title>Books Page</title>
 </head>
 <body>
-<h5 class="logo-text-color text-center p-3">Наши авторы</h5>
-<jsp:include page="navigateBar.jsp" />
+    <h5 class="logo-text-color text-center p-3">Наши авторы</h5>
+    <jsp:include page="navigateBar.jsp" />
+    <table class="tableBorder">
+        <tr>
+            <th>№</th>
+            <th>first name</th>
+            <th>surname</th>
+            <th>age</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>card code</th>
+            <th>actions</th>
+
+        </tr>
+        <c:forEach var="author" items="${authorList}" varStatus="i">
+            <tr>
+                <td>${i.index + 1 + (page - 1) * 10}</td>
+                <td>${author.title}</td>
+                <td>${author.year}</td>
+                <td>${author.genre}</td>
+            </tr>
+        </c:forEach>
+    </table>
 </body>
 </html>

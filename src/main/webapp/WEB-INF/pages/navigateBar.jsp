@@ -1,17 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: barchenko
-  Date: 13.06.2020
-  Time: 23:01
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ taglib prefix="myTag" uri="/WEB-INF/table.tld" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-    <title>Title</title>
+    <%@ include file="/WEB-INF/jspf/head.jspf" %>
+    <link rel="stylesheet" href="../../style/css/bootstrap.css">
+    <link rel="stylesheet" href="../../style/css/st4.css">
+    <link rel="stylesheet" href="../../style/css/myStyles.css">
 </head>
 <body>
-<nav class="col-12 col-md-3 col-lg-2 p-0 vh-100">
+<nav class="col-12 col-md-3 col-lg-2 p-0 vh-100 navBarPosition">
     <h5 class="logo-text-color text-center p-3">ІС "Книжная редакция"</h5>
     <hr>
     <ul class="h5">
