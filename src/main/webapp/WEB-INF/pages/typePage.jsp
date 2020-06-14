@@ -21,12 +21,16 @@
     <tr>
         <th>№</th>
         <th>type</th>
+        <th>actions</th>
     </tr>
     <c:forEach var="type" items="${typeList}" varStatus="i">
         <tr>
             <td></td>
             <td>${type.type_name}</td>
-
+            <td>
+                <a href="/book/update?">update</a>
+                <a href="/book/delete?">delete</a>
+            </td>
         </tr>
     </c:forEach>
 </table>

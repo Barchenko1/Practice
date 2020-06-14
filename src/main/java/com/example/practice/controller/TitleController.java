@@ -1,5 +1,6 @@
 package com.example.practice.controller;
 
+import com.example.practice.dto.BookTypeDto;
 import com.example.practice.dto.TitleDto;
 import com.example.practice.service.TitleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,10 @@ public class TitleController {
     private TitleService titleService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    protected ModelAndView pageGet() {
+    protected ModelAndView getTypePage() {
         ModelAndView modelAndView = new ModelAndView();
+        List<TitleDto> titleDtoList = titleService.findAllTitles();
+        modelAndView.addObject("titleDtoList", titleDtoList);
         modelAndView.setViewName(TITLE_PAGE);
         return modelAndView;
     }

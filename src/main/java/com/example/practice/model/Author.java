@@ -26,6 +26,7 @@ public class Author {
     private String email;
     @NotNull
     private String phone;
+    private int author_pay;
     @NotNull
     private String card_code;
 
@@ -88,6 +89,14 @@ public class Author {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public int getAuthor_pay() {
+        return author_pay;
+    }
+
+    public void setAuthor_pay(int author_pay) {
+        this.author_pay = author_pay;
     }
 
     public String getCard_code() {

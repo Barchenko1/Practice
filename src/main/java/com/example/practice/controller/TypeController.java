@@ -27,7 +27,7 @@ public class TypeController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
-    protected ModelAndView pageGet() {
+    protected ModelAndView createTypePage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(CREATE_TYPE_PAGE);
         return modelAndView;

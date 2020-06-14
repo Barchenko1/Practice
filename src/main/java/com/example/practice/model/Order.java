@@ -14,8 +14,6 @@ public class Order {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long order_id;
 
-    private Date date;
-
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "customer_id")
@@ -32,14 +30,6 @@ public class Order {
 
     public void setOrder_id(Long order_id) {
         this.order_id = order_id;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public Customer getCustomer() {

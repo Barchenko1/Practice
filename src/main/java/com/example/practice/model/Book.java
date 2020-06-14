@@ -1,7 +1,7 @@
 package com.example.practice.model;
 
-import com.sun.istack.NotNull;
 import org.hibernate.annotations.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.persistence.CascadeType;
@@ -22,6 +22,8 @@ public class Book {
     private int price;
     private int circulation;
     private int advance;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date public_date;
 
     @ManyToOne

@@ -13,6 +13,9 @@
 <body>
     <h5 class="logo-text-color text-center p-3">Наши заказчики</h5>
     <jsp:include page="navigateBar.jsp" />
+    <div class="addLink">
+        <a href="/customer/create">Add new customer</a>
+    </div>
     <table class="tableBorder">
         <tr>
             <th>№</th>

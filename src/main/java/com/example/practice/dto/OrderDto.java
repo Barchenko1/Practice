@@ -1,15 +1,19 @@
 package com.example.practice.dto;
 
-public class TitleDto {
+import java.util.Date;
+
+public class OrderDto {
 
     private String title;
     private int price;
     private int circulation;
+    private int advance;
+    private Date public_date;
     private String f_name;
     private String l_name;
-    private int author_pay;
+    private String email;
 
-    public TitleDto() {
+    public OrderDto() {
     }
 
     public String getTitle() {
@@ -36,6 +40,22 @@ public class TitleDto {
         this.circulation = circulation;
     }
 
+    public int getAdvance() {
+        return advance;
+    }
+
+    public void setAdvance(int advance) {
+        this.advance = advance;
+    }
+
+    public Date getPublic_date() {
+        return public_date;
+    }
+
+    public void setPublic_date(Date public_date) {
+        this.public_date = public_date;
+    }
+
     public String getF_name() {
         return f_name;
     }
@@ -52,11 +72,11 @@ public class TitleDto {
         this.l_name = l_name;
     }
 
-    public int getAuthor_pay() {
-        return author_pay;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAuthor_pay(int author_pay) {
-        this.author_pay = author_pay;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

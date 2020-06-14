@@ -2,6 +2,7 @@ package com.example.practice.controller;
 
 import com.example.practice.dto.BookTypeDto;
 import com.example.practice.model.Book;
+import com.example.practice.model.Type;
 import com.example.practice.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -39,7 +40,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void createBook(@RequestBody Book book) {
+    public void createBook(@ModelAttribute("book") Book book) {
         bookService.createBook(book);
     }
 

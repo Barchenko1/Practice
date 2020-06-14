@@ -13,39 +13,45 @@
     <title>Books Page</title>
 </head>
 <body>
-<h1 align="center">Add Type</h1>
+<h1 align="center">Add Author</h1>
 <br/>
 <jsp:include page="navigateBar.jsp" />
-<form:form method="post" action="/type/create">
+<form:form method="post" action="/author/create">
     <table>
         <tr>
-            <td align="right">Type</td>
+            <td align="right">First Name</td>
             <td>
-                <input name="type_name" type="text">
+                <input name="f_name" type="text">
             </td>
         </tr>
         <tr>
-            <td align="right">Type</td>
+            <td align="right">Surname</td>
             <td>
-                <input name="type_name" type="text">
+                <input name="l_name" type="text">
             </td>
         </tr>
         <tr>
-            <td align="right">Type</td>
+            <td align="right">Age</td>
             <td>
-                <input name="type_name" type="text">
+                <input name="age" type="number">
             </td>
         </tr>
         <tr>
-            <td align="right">Type</td>
+            <td align="right">Email</td>
             <td>
-                <input name="type_name" type="text">
+                <input name="email" type="email">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Card code</td>
+            <td>
+                <input name="card_code" type="text">
             </td>
         </tr>
 
         <tr>
             <td>
-                <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/type/" class="btn btn-success" role="button" aria-pressed="true">Cancel</a></p>
+                <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/author/" class="btn btn-success" role="button" aria-pressed="true">Cancel</a></p>
             </td>
         </tr>
     </table>

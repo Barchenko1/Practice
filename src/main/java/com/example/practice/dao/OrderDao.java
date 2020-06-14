@@ -1,5 +1,6 @@
 package com.example.practice.dao;
 
+import com.example.practice.dto.OrderDto;
 import com.example.practice.model.Order;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface OrderDao {
 
     void removeOrder(Order order);
 
-    List<Order> findAllOrders();
+    List<OrderDto> findAllOrders();
 }

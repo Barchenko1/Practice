@@ -1,6 +1,5 @@
 package com.example.practice.dao;
 
-import com.example.practice.model.Customer;
 import com.example.practice.model.Type;
 
 import java.util.List;
@@ -13,4 +12,6 @@ public interface TypeDao {
     void removeType(Type type);
 
     List<Type> findAllTypes();
+
+    Type findTypeByName(String type_name);
 }

@@ -1,10 +1,8 @@
 package com.example.practice.controller;
 
-import com.example.practice.model.Title;
+import com.example.practice.dto.OrderDto;
 import com.example.practice.service.OrderService;
-import com.example.practice.service.TitleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +21,8 @@ public class OrderController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     protected ModelAndView pageGet() {
         ModelAndView modelAndView = new ModelAndView();
+        List<OrderDto> orderDtoList = orderService.findAllOrder();
+        modelAndView.addObject("orderDtoList", orderDtoList);
         modelAndView.setViewName(ORDER_PAGE);
         return modelAndView;
     }

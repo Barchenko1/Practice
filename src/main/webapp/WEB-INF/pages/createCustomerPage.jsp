@@ -13,51 +13,57 @@
     <title>Books Page</title>
 </head>
 <body>
-<h1 align="center">Add Book</h1>
+<h1 align="center">Add Customer</h1>
 <br/>
 <jsp:include page="navigateBar.jsp" />
-<form:form method="post" action="/book/create" name="userform" >
+<form:form method="post" action="/customer/create">
     <table>
         <tr>
-            <td align="right">Title</td>
+            <td align="right">First Name</td>
             <td>
-                <input name="title" type="text">
+                <input name="f_name" type="text">
             </td>
         </tr>
         <tr>
-            <td align="right">Price</td>
+            <td align="right">Surname</td>
             <td>
-                <input name="price" type="number">
+                <input name="l_name" type="text">
             </td>
         </tr>
         <tr>
-            <td align="right">Circulation</td>
+            <td align="right">Age</td>
             <td>
-                <input name="circulation" type="number">
+                <input name="age" type="number">
             </td>
         </tr>
         <tr>
-            <td align="right">Advance</td>
+            <td align="right">Login</td>
             <td>
-                <input name="advance" type="number">
+                <input name="login" type="text">
             </td>
         </tr>
         <tr>
-            <td align="right">Public Date</td>
+            <td align="right">Password</td>
             <td>
-                <input name="public_date" type="date">
+                <input name="password" type="password">
             </td>
         </tr>
         <tr>
-            <td align="right">Type</td>
+            <td align="right">Email</td>
             <td>
-                <input name="type">
+                <input name="email" type="email">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Card code</td>
+            <td>
+                <input name="card_code" type="text">
             </td>
         </tr>
 
         <tr>
             <td>
-                <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/book/" class="btn btn-success" role="button" aria-pressed="true">Cancel</a></p>
+                <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/customer/" class="btn btn-success" role="button" aria-pressed="true">Cancel</a></p>
             </td>
         </tr>
     </table>

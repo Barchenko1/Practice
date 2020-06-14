@@ -14,7 +14,7 @@
     <h5 class="logo-text-color text-center p-3">Наши авторы</h5>
     <jsp:include page="navigateBar.jsp" />
     <div class="addLink">
-        <a href="/book/create">Add new author</a>
+        <a href="/author/create">Add new author</a>
     </div>
     <table class="tableBorder">
         <tr>

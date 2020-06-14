@@ -13,8 +13,6 @@ public class Title {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long title_id;
 
-    private int author_pay;
-
     @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "author_id", nullable = false)
@@ -34,14 +32,6 @@ public class Title {
 
     public void setTitle_id(Long title_id) {
         this.title_id = title_id;
-    }
-
-    public int getAuthor_pay() {
-        return author_pay;
-    }
-
-    public void setAuthor_pay(int author_pay) {
-        this.author_pay = author_pay;
     }
 
     public Author getAuthor() {
