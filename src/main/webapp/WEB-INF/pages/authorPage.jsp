@@ -30,7 +30,7 @@
         </tr>
         <c:forEach var="author" items="${authorList}" varStatus="i">
             <tr>
-                <td></td>
+                <td>${author.author_id}</td>
                 <td>${author.f_name}</td>
                 <td>${author.l_name}</td>
                 <td>${author.age}</td>

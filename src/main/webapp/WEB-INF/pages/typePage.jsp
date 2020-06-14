@@ -25,7 +25,7 @@
     </tr>
     <c:forEach var="type" items="${typeList}" varStatus="i">
         <tr>
-            <td></td>
+            <td>${type.type_id}</td>
             <td>${type.type_name}</td>
             <td>
                 <a href="/type/update/${type.type_id}">update</a>

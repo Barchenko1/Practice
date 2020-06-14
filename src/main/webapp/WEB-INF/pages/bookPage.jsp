@@ -31,7 +31,7 @@
         </tr>
         <c:forEach var="book" items="${bookList}" varStatus="i">
             <tr>
-                <td></td>
+                <td>${book.book_id}</td>
                 <td>${book.title}</td>
                 <td>${book.price}</td>
                 <td>${book.circulation}</td>

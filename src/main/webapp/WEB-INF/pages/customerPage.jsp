@@ -31,7 +31,7 @@
         </tr>
         <c:forEach var="customer" items="${customerList}" varStatus="i">
             <tr>
-                <td></td>
+                <td>${customer.customer_id}</td>
                 <td>${customer.f_name}</td>
                 <td>${customer.l_name}</td>
                 <td>${customer.age}</td>
