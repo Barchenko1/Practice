@@ -1,20 +1,18 @@
-package com.example.practice.model;
+package com.example.practice.dto;
 
-import javax.persistence.Entity;
-
-public class TestDto {
-    private Long author_pay;
+public class TitleDto {
+    private int author_pay;
     private String title;
     private String f_name;
 
-    public TestDto() {
+    public TitleDto() {
     }
 
-    public Long getAuthor_pay() {
+    public int getAuthor_pay() {
         return author_pay;
     }
 
-    public void setAuthor_pay(Long author_pay) {
+    public void setAuthor_pay(int author_pay) {
         this.author_pay = author_pay;
     }
 
