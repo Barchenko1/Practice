@@ -11,5 +11,7 @@ public interface TypeService {
 
     void removeType(Type type);
 
+    Type findById(int id);
+
     List<Type> findAllTypes();
 }

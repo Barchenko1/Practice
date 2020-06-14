@@ -13,5 +13,7 @@ public interface TypeDao {
 
     List<Type> findAllTypes();
 
+    Type findTypeById(int id);
+
     Type findTypeByName(String type_name);
 }

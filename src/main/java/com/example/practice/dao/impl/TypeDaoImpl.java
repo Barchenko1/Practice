@@ -18,7 +18,8 @@ import static java.util.Objects.isNull;
 public class TypeDaoImpl implements TypeDao {
 
     private static final String FIND_ALL_TYPES = "SELECT * from Types";
-    private static final String FIND_TYPE_BY_NAME = "SELECT type_name from Types where ";
+    private static final String FIND_TYPE_BY_ID = "SELECT * from Types where type_id=?";
+    private static final String FIND_TYPE_BY_NAME = "SELECT * from Types where type_name=?";
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -70,6 +71,17 @@ public class TypeDaoImpl implements TypeDao {
             return Collections.emptyList();
         }
         return typeList;
+    }
+
+    @Override
+    public Type findTypeById(int id) {
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_TYPE_BY_ID);
+        query.setParameter(1, id);
+        Type type = (Type) query.addEntity(Type.class).getSingleResult();
+        if (isNull(type)) {
+            return null;
+        }
+        return type;
     }
 
     @Override

@@ -28,8 +28,8 @@
             <td></td>
             <td>${type.type_name}</td>
             <td>
-                <a href="/book/update?">update</a>
-                <a href="/book/delete?">delete</a>
+                <a href="/type/update/${type.type_id}">update</a>
+                <a href="/type/delete/${type.type_id}">delete</a>
             </td>
         </tr>
     </c:forEach>

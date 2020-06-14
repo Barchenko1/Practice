@@ -30,6 +30,11 @@ public class TypeServiceImpl implements TypeService {
     }
 
     @Override
+    public Type findById(int id) {
+        return typeDao.findTypeById(id);
+    }
+
+    @Override
     public List<Type> findAllTypes() {
         return typeDao.findAllTypes();
     }
