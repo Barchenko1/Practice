@@ -1,6 +1,7 @@
 package com.example.practice.service.impl;
 
 import com.example.practice.dao.BookDao;
+import com.example.practice.dto.BookTypeDto;
 import com.example.practice.model.Book;
 import com.example.practice.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> findAllBooks() {
-        return bookDao.findAllBooks();
+    public List<BookTypeDto> findAllBooksTypes() {
+        return bookDao.findAllBooksTypes();
     }
 
     @Override

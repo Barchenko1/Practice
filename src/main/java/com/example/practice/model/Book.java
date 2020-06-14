@@ -23,7 +23,11 @@ public class Book {
     private int circulation;
     private int advance;
     private Date public_date;
-    private String type;
+
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "type_id")
+    private Type type;
 
     @OneToMany(
             mappedBy = "book",
@@ -96,11 +100,11 @@ public class Book {
         this.public_date = public_date;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 

@@ -14,6 +14,9 @@
 <body>
     <h5 class="logo-text-color text-center p-3">Наши книги</h5>
     <jsp:include page="navigateBar.jsp" />
+    <div class="addLink">
+        <a href="/book/create">Add new book</a>
+    </div>
     <table class="tableBorder">
         <tr>
             <th>№</th>
@@ -28,10 +31,17 @@
         </tr>
         <c:forEach var="book" items="${bookList}" varStatus="i">
             <tr>
-                <td>${i.index + 1 + (page - 1) * 10}</td>
+                <td></td>
                 <td>${book.title}</td>
-                <td>${book.year}</td>
-                <td>${book.genre}</td>
+                <td>${book.price}</td>
+                <td>${book.circulation}</td>
+                <td>${book.advance}</td>
+                <td>${book.public_date}</td>
+                <td>${book.type_name}</td>
+                <td>
+                    <a href="/book/update?">update</a>
+                    <a href="/book/delete?">delete</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

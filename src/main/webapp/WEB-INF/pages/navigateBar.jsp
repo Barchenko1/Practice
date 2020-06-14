@@ -15,11 +15,10 @@
     <h5 class="logo-text-color text-center p-3">ІС "Книжная редакция"</h5>
     <hr>
     <ul class="h5">
-        <li class=""><a href="/">СТАТИСТИКА</a></li>
+        <li class=""><a href="/type/">ТИПЫ КНИГ</a></li>
         <li class="active"><a href="/book/">КНИГИ</a></li>
         <li class=""><a href="/author/">АВТОРЫ</a></li>
         <li class=""><a href="/title/">О КНИГАХ</a></li>
-        <li class=""><a href="/f_maker/list">Адрессаты</a></li>
         <li class=""><a href="/order/">ЗАКАЗЫ</a></li>
         <li class=""><a href="/customer/">ЗАКАЗЧИКИ</a></li>
     </ul>

@@ -13,6 +13,9 @@
 <body>
     <h5 class="logo-text-color text-center p-3">Наши авторы</h5>
     <jsp:include page="navigateBar.jsp" />
+    <div class="addLink">
+        <a href="/book/create">Add new author</a>
+    </div>
     <table class="tableBorder">
         <tr>
             <th>№</th>
@@ -27,10 +30,17 @@
         </tr>
         <c:forEach var="author" items="${authorList}" varStatus="i">
             <tr>
-                <td>${i.index + 1 + (page - 1) * 10}</td>
-                <td>${author.title}</td>
-                <td>${author.year}</td>
-                <td>${author.genre}</td>
+                <td></td>
+                <td>${author.f_name}</td>
+                <td>${author.l_name}</td>
+                <td>${author.age}</td>
+                <td>${author.email}</td>
+                <td>${author.phone}</td>
+                <td>${author.card_code}</td>
+                <td>
+                    <a href="/book/update?">update</a>
+                    <a href="/book/delete?">delete</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

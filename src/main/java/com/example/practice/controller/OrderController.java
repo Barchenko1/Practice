@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+import static com.example.practice.util.Constants.ORDER_PAGE;
+
 @RestController
 @RequestMapping("/order")
 public class OrderController {
@@ -21,7 +23,7 @@ public class OrderController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     protected ModelAndView pageGet() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("orderPage");
+        modelAndView.setViewName(ORDER_PAGE);
         return modelAndView;
     }
 

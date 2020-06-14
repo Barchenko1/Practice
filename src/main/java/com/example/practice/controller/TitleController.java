@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+import static com.example.practice.util.Constants.TITLE_PAGE;
+
 @RestController
 @RequestMapping("/title")
 public class TitleController {
@@ -19,7 +21,7 @@ public class TitleController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     protected ModelAndView pageGet() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("titlePage");
+        modelAndView.setViewName(TITLE_PAGE);
         return modelAndView;
     }
 

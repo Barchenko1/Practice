@@ -11,7 +11,37 @@
     <title>Customer Page</title>
 </head>
 <body>
-<h5 class="logo-text-color text-center p-3">Наши заказчики</h5>
-<jsp:include page="navigateBar.jsp" />
+    <h5 class="logo-text-color text-center p-3">Наши заказчики</h5>
+    <jsp:include page="navigateBar.jsp" />
+    <table class="tableBorder">
+        <tr>
+            <th>№</th>
+            <th>first name</th>
+            <th>surname</th>
+            <th>age</th>
+            <th>login</th>
+            <th>password</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>actions</th>
+
+        </tr>
+        <c:forEach var="customer" items="${customerList}" varStatus="i">
+            <tr>
+                <td></td>
+                <td>${customer.f_name}</td>
+                <td>${customer.l_name}</td>
+                <td>${customer.age}</td>
+                <td>${customer.login}</td>
+                <td>${customer.password}</td>
+                <td>${customer.email}</td>
+                <td>${customer.phone}</td>
+                <td>
+                    <a href="/book/update?">update</a>
+                    <a href="/book/delete?">delete</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
 </body>
 </html>

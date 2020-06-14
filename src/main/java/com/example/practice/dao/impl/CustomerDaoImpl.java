@@ -12,6 +12,7 @@ import org.springframework.jdbc.object.SqlQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.Objects.isNull;
@@ -71,7 +72,7 @@ public class CustomerDaoImpl implements CustomerDao {
         NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_ALL_CUSTOMERS);
         List<Customer> customerList = (List<Customer>) query.addEntity(Customer.class).getResultList();
         if (customerList.isEmpty()) {
-            return null;
+            return Collections.emptyList();
         }
         return customerList;
     }

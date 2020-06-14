@@ -1,12 +1,9 @@
 package com.example.practice.dao.impl;
 
 import com.example.practice.dao.AuthorDao;
-import com.example.practice.model.Address;
 import com.example.practice.model.Author;
-import com.example.practice.model.Customer;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
