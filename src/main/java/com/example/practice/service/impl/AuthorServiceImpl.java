@@ -38,4 +38,9 @@ public class AuthorServiceImpl implements AuthorService {
     public Author findById(int id) {
         return authorDao.findById(id);
     }
+
+    @Override
+    public Number findCount() {
+        return authorDao.findCount();
+    }
 }

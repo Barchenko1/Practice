@@ -38,4 +38,10 @@ public class TypeServiceImpl implements TypeService {
     public List<Type> findAllTypes() {
         return typeDao.findAllTypes();
     }
+
+    @Override
+    public Number findCount() {
+        return typeDao.findCount();
+    }
+
 }

@@ -20,6 +20,7 @@ public class TypeDaoImpl implements TypeDao {
     private static final String FIND_ALL_TYPES = "SELECT * from Types";
     private static final String FIND_TYPE_BY_ID = "SELECT * from Types where type_id=?";
     private static final String FIND_TYPE_BY_NAME = "SELECT * from Types where type_name=?";
+    private static final String COUNT_OF_TYPES = "SELECT COUNT(*) from Types";
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -95,4 +96,10 @@ public class TypeDaoImpl implements TypeDao {
         return type;
     }
 
+    @Override
+    public Number findCount() {
+        return  ((Number) sessionFactory.getCurrentSession()
+                .createSQLQuery(COUNT_OF_TYPES)
+                .uniqueResult()).longValue();
+    }
 }

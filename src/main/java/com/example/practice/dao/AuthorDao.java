@@ -15,4 +15,6 @@ public interface AuthorDao {
     List<Author> findAllAuthors();
 
     Author findById(int id);
+
+    Number findCount();
 }

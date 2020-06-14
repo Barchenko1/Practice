@@ -14,4 +14,6 @@ public interface TypeService {
     Type findById(int id);
 
     List<Type> findAllTypes();
+
+    Number findCount();
 }

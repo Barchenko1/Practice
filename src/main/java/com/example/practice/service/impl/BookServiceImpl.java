@@ -53,6 +53,11 @@ public class BookServiceImpl implements BookService {
         return bookDao.findBookByTitle(title);
     }
 
+    @Override
+    public Number findCount() {
+        return bookDao.findCount();
+    }
+
     private boolean hasType(String type_name) {
         Type type = typeDao.findTypeByName(type_name);
         return nonNull(type);

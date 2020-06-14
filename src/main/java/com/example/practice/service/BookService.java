@@ -15,4 +15,6 @@ public interface BookService {
     List<BookTypeDto> findAllBooksTypes();
 
     Book findBookByTitle(String title);
+
+    Number findCount();
 }

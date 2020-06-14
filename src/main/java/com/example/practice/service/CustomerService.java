@@ -14,4 +14,6 @@ public interface CustomerService {
     List<Customer> findAllCustomers();
 
     Customer findById(int id);
+
+    Number findCount();
 }

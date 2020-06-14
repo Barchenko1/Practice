@@ -22,6 +22,7 @@ public class BookDaoImpl implements BookDao {
     private static final String FIND_ALL_BOOKS = "SELECT * from Books";
     private static final String FIND_BOOK = "SELECT * from Books where title = ?";
     private static final String FIND_ALL_BOOKS_TYPES = "SELECT b.book_id, b.title, b.price, b.circulation, b.advance, b.public_date, t.type_name FROM Books b JOIN Types t ON b.type_id=t.type_id";
+    private static final String COUNT_OF_BOOKS = "SELECT COUNT(*) from Books";
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -85,6 +86,13 @@ public class BookDaoImpl implements BookDao {
             return null;
         }
         return book;
+    }
+
+    @Override
+    public Number findCount() {
+        return  ((Number) sessionFactory.getCurrentSession()
+                .createSQLQuery(COUNT_OF_BOOKS)
+                .uniqueResult()).longValue();
     }
 
 

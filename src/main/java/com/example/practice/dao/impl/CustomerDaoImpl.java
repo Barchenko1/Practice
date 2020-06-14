@@ -23,6 +23,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     private static final String FIND_ALL_CUSTOMERS = "SELECT * from Customers";
     private static final String FIND_CUSTOMER_BY_ID = "SELECT * from Customers where customer_id=?";
+    private static final String COUNT_OF_CUSTOMER = "SELECT COUNT(*) from Customers";
 
 
     @Autowired
@@ -86,5 +87,12 @@ public class CustomerDaoImpl implements CustomerDao {
             return null;
         }
         return customer;
+    }
+
+    @Override
+    public Number findCount() {
+        return  ((Number) sessionFactory.getCurrentSession()
+                .createSQLQuery(COUNT_OF_CUSTOMER)
+                .uniqueResult()).longValue();
     }
 }

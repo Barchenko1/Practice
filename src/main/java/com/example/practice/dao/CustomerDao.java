@@ -14,4 +14,6 @@ public interface CustomerDao {
     List<Customer> findAllCustomers();
 
     Customer finById(int id);
+
+    Number findCount();
 }

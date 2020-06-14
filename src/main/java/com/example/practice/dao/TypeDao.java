@@ -16,4 +16,6 @@ public interface TypeDao {
     Type findTypeById(int id);
 
     Type findTypeByName(String type_name);
+
+    Number findCount();
 }

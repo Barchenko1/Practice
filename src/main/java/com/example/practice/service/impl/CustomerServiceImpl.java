@@ -38,4 +38,9 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer findById(int id) {
         return customerDao.finById(id);
     }
+
+    @Override
+    public Number findCount() {
+        return customerDao.findCount();
+    }
 }

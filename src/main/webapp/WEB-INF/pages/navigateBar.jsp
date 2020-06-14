@@ -15,6 +15,7 @@
     <h5 class="logo-text-color text-center p-3">ІС "Книжная редакция"</h5>
     <hr>
     <ul class="h5">
+        <li class=""><a href="/statistic/">СТАТИСТИКА</a></li>
         <li class=""><a href="/type/">ТИПЫ КНИГ</a></li>
         <li class="active"><a href="/book/">КНИГИ</a></li>
         <li class=""><a href="/author/">АВТОРЫ</a></li>

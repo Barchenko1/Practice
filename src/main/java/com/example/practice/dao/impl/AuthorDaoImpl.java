@@ -19,6 +19,7 @@ public class AuthorDaoImpl implements AuthorDao {
 
     private static final String FIND_ALL_AUTHORS = "SELECT * from Authors";
     private static final String FIND_AUTHOR_BY_ID = "SELECT * from Authors where author_id = ?";
+    private static final String COUNT_OF_AUTHORS = "SELECT COUNT(*) from Authors";
 
 
     @Autowired
@@ -82,5 +83,12 @@ public class AuthorDaoImpl implements AuthorDao {
             return null;
         }
         return author;
+    }
+
+    @Override
+    public Number findCount() {
+        return  ((Number) sessionFactory.getCurrentSession()
+                .createSQLQuery(COUNT_OF_AUTHORS)
+                .uniqueResult()).longValue();
     }
 }

@@ -20,5 +20,6 @@ public class Constants {
     public static final String UPDATE_CUSTOMER_PAGE = "updateCustomerPage";
     public static final String UPDATE_TYPE_PAGE = "updateTypePage";
 
+    public static final String STATISTIC_PAGE = "statisticPage";
 
 }
