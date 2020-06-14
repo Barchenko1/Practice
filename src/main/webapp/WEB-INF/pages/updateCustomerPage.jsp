@@ -13,57 +13,57 @@
     <title>Books Page</title>
 </head>
 <body>
-<h1 align="center">Update Author</h1>
+<h1 align="center">Update Customer</h1>
 <br/>
 <jsp:include page="navigateBar.jsp" />
-<form:form method="post" action="/author/update/${author.author_id}">
+<form:form method="post" action="/customer/update/${customer.customer_id}">
     <table>
         <tr>
             <td align="right">First Name</td>
             <td>
-                <input name="f_name" type="text" value="${author.f_name}">
+                <input name="f_name" type="text" value="${customer.f_name}">
             </td>
         </tr>
         <tr>
             <td align="right">Surname</td>
             <td>
-                <input name="l_name" type="text" value="${author.l_name}">
+                <input name="l_name" type="text" value="${customer.l_name}">
             </td>
         </tr>
         <tr>
             <td align="right">Age</td>
             <td>
-                <input name="age" type="number" value="${author.age}">
+                <input name="age" type="number" value="${customer.age}">
             </td>
         </tr>
         <tr>
-            <td align="right">Phone</td>
+            <td align="right">Login</td>
             <td>
-                <input name="phone" type="tel" value="${author.phone}">
+                <input name="login" type="text" value="${customer.login}">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Password</td>
+            <td>
+                <input name="password" type="password" value="${customer.password}">
             </td>
         </tr>
         <tr>
             <td align="right">Email</td>
             <td>
-                <input name="email" type="email" value="${author.email}">
+                <input name="email" type="email" value="${customer.email}">
             </td>
         </tr>
         <tr>
-            <td align="right">Pay</td>
+            <td align="right">Phone</td>
             <td>
-                <input name="author_pay" type="number" value="${author.author_pay}">
-            </td>
-        </tr>
-        <tr>
-            <td align="right">Card code</td>
-            <td>
-                <input name="card_code" type="text" value="${author.card_code}">
+                <input name="phone" type="text" value="${customer.phone}">
             </td>
         </tr>
 
         <tr>
             <td>
-                <p><input class="btn btn-success" type="submit" name="Submit" value="OK"> <a href="/author/" class="btn btn-success" role="button" aria-pressed="true">Cancel</a></p>
+                <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/customer/" class="btn btn-success" role="button" aria-pressed="true">Cancel</a></p>
             </td>
         </tr>
     </table>

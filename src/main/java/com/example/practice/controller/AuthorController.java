@@ -50,8 +50,9 @@ public class AuthorController {
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
-    public ModelAndView updateAuthorPost(@PathVariable("id") int id) {
-        Author author = authorService.findById(id);
+    public ModelAndView updateAuthorPost(@PathVariable("id") int id,
+                                        @ModelAttribute("author") Author author) {
+        author.setAuthor_id((long) id);
         authorService.updateAuthor(author);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/author/");
@@ -72,8 +73,4 @@ public class AuthorController {
         return authorService.findAllAuthors();
     }
 
-//    @RequestMapping(value = "/find/{login}", method = RequestMethod.GET)
-//    public Customer findAuthor(@PathVariable("login") String login) {
-//        return authorService.finByLogin(login);
-//    }
 }

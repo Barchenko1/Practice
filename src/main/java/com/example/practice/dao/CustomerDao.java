@@ -13,5 +13,5 @@ public interface CustomerDao {
 
     List<Customer> findAllCustomers();
 
-    Customer finByLogin(String login);
+    Customer finById(int id);
 }

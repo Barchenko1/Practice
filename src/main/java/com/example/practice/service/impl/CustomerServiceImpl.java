@@ -35,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer finByLogin(String login) {
-        return customerDao.finByLogin(login);
+    public Customer findById(int id) {
+        return customerDao.finById(id);
     }
 }

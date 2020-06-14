@@ -13,5 +13,5 @@ public interface CustomerService {
 
     List<Customer> findAllCustomers();
 
-    Customer finByLogin(String login);
+    Customer findById(int id);
 }

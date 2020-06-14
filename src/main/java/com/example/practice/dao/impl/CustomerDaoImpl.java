@@ -22,7 +22,7 @@ import static java.util.Objects.isNull;
 public class CustomerDaoImpl implements CustomerDao {
 
     private static final String FIND_ALL_CUSTOMERS = "SELECT * from Customers";
-    private static final String FIND_CUSTOMER = "SELECT * from Customers where login=?";
+    private static final String FIND_CUSTOMER_BY_ID = "SELECT * from Customers where customer_id=?";
 
 
     @Autowired
@@ -78,9 +78,9 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public Customer finByLogin(String login) {
-        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_CUSTOMER);
-        query.setParameter(1, login);
+    public Customer finById(int id) {
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_CUSTOMER_BY_ID);
+        query.setParameter(1, id);
         Customer customer = (Customer) query.addEntity(Customer.class).getSingleResult();
         if (isNull(customer)) {
             return null;

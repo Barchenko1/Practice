@@ -3,6 +3,7 @@ package com.example.practice.dto;
 import java.util.Date;
 
 public class BookTypeDto {
+    private int book_id;
     private String title;
     private int price;
     private int circulation;
@@ -11,6 +12,14 @@ public class BookTypeDto {
     private String type_name;
 
     public BookTypeDto() {
+    }
+
+    public int getBook_id() {
+        return book_id;
+    }
+
+    public void setBook_id(int book_id) {
+        this.book_id = book_id;
     }
 
     public String getTitle() {

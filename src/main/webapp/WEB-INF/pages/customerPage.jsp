@@ -40,8 +40,8 @@
                 <td>${customer.email}</td>
                 <td>${customer.phone}</td>
                 <td>
-                    <a href="/book/update?">update</a>
-                    <a href="/book/delete?">delete</a>
+                    <a href="/customer/update/${customer.customer_id}">update</a>
+                    <a href="/customer/delete/${customer.customer_id}">delete</a>
                 </td>
             </tr>
         </c:forEach>

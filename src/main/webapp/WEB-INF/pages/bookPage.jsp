@@ -39,8 +39,8 @@
                 <td>${book.public_date}</td>
                 <td>${book.type_name}</td>
                 <td>
-                    <a href="/book/update?">update</a>
-                    <a href="/book/delete?">delete</a>
+                    <a href="/book/update/${book.book_id}">update</a>
+                    <a href="/book/delete/${book.book_id}">delete</a>
                 </td>
             </tr>
         </c:forEach>

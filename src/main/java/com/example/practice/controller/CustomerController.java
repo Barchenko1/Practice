@@ -34,28 +34,39 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void createCustomer(@RequestBody Customer customer) {
+    public ModelAndView createCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.createCustomer(customer);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/customer/");
+        return modelAndView;
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public void updateCustomer(@RequestBody Customer customer) {
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    public ModelAndView updateAuthorGet(@PathVariable("id") int id) {
+        Customer customer = customerService.findById(id);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName(UPDATE_CUSTOMER_PAGE);
+        modelAndView.addObject("customer", customer);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    public ModelAndView updateAuthorPost(@PathVariable("id") int id,
+                                         @ModelAttribute("author") Customer customer) {
+        customer.setCustomer_id((long) id);
         customerService.updateCustomer(customer);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/customer/");
+        return modelAndView;
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public void deleteCustomer(@RequestBody Customer customer) {
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public ModelAndView deleteAuthor(@PathVariable("id") int id) {
+        Customer customer = customerService.findById(id);
         customerService.removeCustomer(customer);
-    }
-
-    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public List<Customer> findAllCustomers() {
-        return customerService.findAllCustomers();
-    }
-
-    @RequestMapping(value = "/find/{login}", method = RequestMethod.GET)
-    public Customer findCustomer(@PathVariable("login") String login) {
-        return customerService.finByLogin(login);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/customer/");
+        return modelAndView;
     }
 
 }

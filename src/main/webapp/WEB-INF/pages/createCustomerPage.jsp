@@ -55,9 +55,9 @@
             </td>
         </tr>
         <tr>
-            <td align="right">Card code</td>
+            <td align="right">Phone</td>
             <td>
-                <input name="card_code" type="text">
+                <input name="phone" type="tel">
             </td>
         </tr>
 
