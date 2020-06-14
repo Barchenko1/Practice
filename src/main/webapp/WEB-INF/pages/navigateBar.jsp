@@ -16,6 +16,7 @@
     <hr>
     <ul class="h5">
         <li class=""><a href="/statistic/">СТАТИСТИКА</a></li>
+        <li class=""><a href="/randomRequest/">ЗАПРОС</a></li>
         <li class=""><a href="/type/">ТИПЫ КНИГ</a></li>
         <li class="active"><a href="/book/">КНИГИ</a></li>
         <li class=""><a href="/author/">АВТОРЫ</a></li>

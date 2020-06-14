@@ -21,5 +21,6 @@ public class Constants {
     public static final String UPDATE_TYPE_PAGE = "updateTypePage";
 
     public static final String STATISTIC_PAGE = "statisticPage";
+    public static final String RANDOM_REQUEST_PAGE = "randomRequestPage";
 
 }
