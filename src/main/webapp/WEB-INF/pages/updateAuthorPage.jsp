@@ -13,51 +13,51 @@
     <title>Books Page</title>
 </head>
 <body>
-<h1 align="center">Add Author</h1>
+<h1 align="center">Update Author</h1>
 <br/>
 <jsp:include page="navigateBar.jsp" />
-<form:form method="post" action="/author/create">
+<form:form method="post" action="/author/update">
     <table>
         <tr>
             <td align="right">First Name</td>
             <td>
-                <input name="f_name" type="text">
+                <input name="f_name" type="text" value="${author.f_name}">
             </td>
         </tr>
         <tr>
             <td align="right">Surname</td>
             <td>
-                <input name="l_name" type="text">
+                <input name="l_name" type="text" value="${author.l_name}">
             </td>
         </tr>
         <tr>
             <td align="right">Age</td>
             <td>
-                <input name="age" type="number">
+                <input name="age" type="number" value="${author.age}">
             </td>
         </tr>
         <tr>
             <td align="right">Phone</td>
             <td>
-                <input name="phone" type="tel">
+                <input name="phone" type="tel" value="${author.phone}">
             </td>
         </tr>
         <tr>
             <td align="right">Email</td>
             <td>
-                <input name="email" type="email">
+                <input name="email" type="email" value="${author.email}">
             </td>
         </tr>
         <tr>
             <td align="right">Pay</td>
             <td>
-                <input name="author_pay" type="number">
+                <input name="author_pay" type="number" value="${author.author_pay}">
             </td>
         </tr>
         <tr>
             <td align="right">Card code</td>
             <td>
-                <input name="card_code" type="text">
+                <input name="card_code" type="text" value="${author.card_code}">
             </td>
         </tr>
 

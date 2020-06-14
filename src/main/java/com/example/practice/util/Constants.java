@@ -16,5 +16,6 @@ public class Constants {
     public static final String CREATE_AUTHOR_PAGE = "createAuthorPage";
     public static final String CREATE_CUSTOMER_PAGE = "createCustomerPage";
 
+    public static final String UPDATE_AUTHOR_PAGE = "updateAuthorPage";
 
 }

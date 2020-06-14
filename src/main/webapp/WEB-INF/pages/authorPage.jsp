@@ -38,8 +38,8 @@
                 <td>${author.phone}</td>
                 <td>${author.card_code}</td>
                 <td>
-                    <a href="/book/update?">update</a>
-                    <a href="/book/delete?">delete</a>
+                    <a href="/author/update/${author.author_id}">update</a>
+                    <a href="/author/delete/${author.author_id}">delete</a>
                 </td>
             </tr>
         </c:forEach>

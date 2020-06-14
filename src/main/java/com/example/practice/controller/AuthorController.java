@@ -1,6 +1,5 @@
 package com.example.practice.controller;
 
-import com.example.practice.dto.BookTypeDto;
 import com.example.practice.model.Author;
 import com.example.practice.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,18 +33,38 @@ public class AuthorController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public void createAuthor(@RequestBody Author author) {
+    public ModelAndView createAuthor(@ModelAttribute("author") Author author) {
         authorService.createAuthor(author);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/author/");
+        return modelAndView;
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public void updateAuthor(@RequestBody Author author) {
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    public ModelAndView updateAuthorGet(@PathVariable("id") int id) {
+        Author author = authorService.findById(id);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName(UPDATE_AUTHOR_PAGE);
+        modelAndView.addObject("author", author);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    public ModelAndView updateAuthorPost(@PathVariable("id") int id) {
+        Author author = authorService.findById(id);
         authorService.updateAuthor(author);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/author/");
+        return modelAndView;
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public void deleteAuthor(@RequestBody Author author) {
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public ModelAndView deleteAuthor(@PathVariable("id") int id) {
+        Author author = authorService.findById(id);
         authorService.removeAuthor(author);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/author/");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)

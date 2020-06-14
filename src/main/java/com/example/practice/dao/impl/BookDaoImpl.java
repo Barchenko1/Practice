@@ -80,10 +80,11 @@ public class BookDaoImpl implements BookDao {
     public Book findBookByTitle(String title) {
         NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_BOOK);
         query.setParameter(1, title);
-        if (isNull(query.getSingleResult())) {
+        Book book = (Book) query.addEntity(Book.class).getSingleResult();
+        if (isNull(book)) {
             return null;
         }
-        return (Book) query.addEntity(Book.class).getSingleResult();
+        return book;
     }
 
 

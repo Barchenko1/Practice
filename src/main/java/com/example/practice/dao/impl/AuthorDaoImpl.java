@@ -2,6 +2,7 @@ package com.example.practice.dao.impl;
 
 import com.example.practice.dao.AuthorDao;
 import com.example.practice.model.Author;
+import com.example.practice.model.Book;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,9 @@ import static java.util.Objects.isNull;
 @Transactional
 public class AuthorDaoImpl implements AuthorDao {
 
-    private static final String FIND_ALL_CUSTOMERS = "SELECT * from Authors";
+    private static final String FIND_ALL_AUTHORS = "SELECT * from Authors";
+    private static final String FIND_AUTHOR_BY_ID = "SELECT * from Authors where author_id = ?";
+
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -62,11 +65,22 @@ public class AuthorDaoImpl implements AuthorDao {
 
     @Override
     public List<Author> findAllAuthors() {
-        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_ALL_CUSTOMERS);
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_ALL_AUTHORS);
         List<Author> authorList = (List<Author>) query.addEntity(Author.class).getResultList();
         if (authorList.isEmpty()) {
             return null;
         }
         return authorList;
+    }
+
+    @Override
+    public Author findById(int id) {
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_AUTHOR_BY_ID);
+        query.setParameter(1, id);
+        Author author = (Author) query.addEntity(Author.class).getSingleResult();
+        if (isNull(author)) {
+            return null;
+        }
+        return author;
     }
 }
