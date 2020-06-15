@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
 import java.util.Collections;
 import java.util.List;
 
@@ -89,9 +90,11 @@ public class TypeDaoImpl implements TypeDao {
     public Type findTypeByName(String type_name) {
         NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_TYPE_BY_NAME);
         query.setParameter(1, type_name);
-        Type type = (Type) query.addEntity(Type.class).getSingleResult();
-        if (isNull(type)) {
-            return null;
+        Type type = null;
+        try {
+            type = (Type) query.addEntity(Type.class).getSingleResult();
+        } catch (NoResultException ex) {
+
         }
         return type;
     }

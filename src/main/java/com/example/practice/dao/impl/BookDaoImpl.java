@@ -20,9 +20,11 @@ import static java.util.Objects.isNull;
 public class BookDaoImpl implements BookDao {
 
     private static final String FIND_ALL_BOOKS = "SELECT * from Books";
-    private static final String FIND_BOOK = "SELECT * from Books where title = ?";
+    private static final String FIND_BOOK_BY_TITLE = "SELECT * from Books where title = ?";
     private static final String FIND_ALL_BOOKS_TYPES = "SELECT b.book_id, b.title, b.price, b.circulation, b.advance, b.public_date, t.type_name FROM Books b JOIN Types t ON b.type_id=t.type_id";
     private static final String COUNT_OF_BOOKS = "SELECT COUNT(*) from Books";
+    private static final String FIND_BOOK_BY_ID = "SELECT * from Books where book_id = ?";
+
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -47,7 +49,7 @@ public class BookDaoImpl implements BookDao {
         }
         try {
             sessionFactory.getCurrentSession()
-                    .delete(book);
+                    .update(book);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -78,8 +80,19 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
+    public Book findById(int id) {
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_BOOK_BY_ID);
+        query.setParameter(1, id);
+        Book book = (Book) query.addEntity(Book.class).getSingleResult();
+        if (isNull(book)) {
+            return null;
+        }
+        return book;
+    }
+
+    @Override
     public Book findBookByTitle(String title) {
-        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_BOOK);
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_BOOK_BY_TITLE);
         query.setParameter(1, title);
         Book book = (Book) query.addEntity(Book.class).getSingleResult();
         if (isNull(book)) {

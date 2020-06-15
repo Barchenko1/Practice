@@ -23,19 +23,26 @@ public class BookServiceImpl implements BookService {
     private TypeDao typeDao;
 
     @Override
-    public void createBook(Book book) {
-        Type type = typeDao.findTypeByName(book.getType().getType_name());
+    public void createBook(BookTypeDto bookTypeDto) {
+        Type type = typeDao.findTypeByName(bookTypeDto.getType_name());
         if (isNull(type)){
-            typeDao.createType(book.getType());
-            type = typeDao.findTypeByName(book.getType().getType_name());
+            typeDao.createType(createTypeObject(bookTypeDto.getType_name()));
+            type = typeDao.findTypeByName(bookTypeDto.getType_name());
         }
-        book.setType(type);
-        bookDao.createBook(book);
+        bookDao.createBook(createBookObject(bookTypeDto, type));
     }
 
+
     @Override
-    public void updateBook(Book book) {
-        bookDao.updateBook(book);
+    public void updateBook(BookTypeDto bookTypeDto) {
+        Type type = typeDao.findTypeByName(bookTypeDto.getType_name());
+        if (isNull(type)){
+            typeDao.createType(createTypeObject(bookTypeDto.getType_name()));
+            type = typeDao.findTypeByName(bookTypeDto.getType_name());
+        }
+        Book newBook = createBookObject(bookTypeDto, type);
+        newBook.setBook_id((long) bookTypeDto.getBook_id());
+        bookDao.updateBook(newBook);
     }
 
     @Override
@@ -46,6 +53,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<BookTypeDto> findAllBooksTypes() {
         return bookDao.findAllBooksTypes();
+    }
+
+    @Override
+    public Book findById(int id) {
+        return bookDao.findById(id);
     }
 
     @Override
@@ -61,5 +73,23 @@ public class BookServiceImpl implements BookService {
     private boolean hasType(String type_name) {
         Type type = typeDao.findTypeByName(type_name);
         return nonNull(type);
+    }
+
+    private Book createBookObject(BookTypeDto bookTypeDto, Type type) {
+        Book book = new Book();
+        book.setTitle(bookTypeDto.getTitle());
+        book.setPrice(bookTypeDto.getPrice());
+        book.setCirculation(bookTypeDto.getCirculation());
+        book.setAdvance(bookTypeDto.getAdvance());
+        book.setPublic_date(bookTypeDto.getPublic_date());
+        book.setType(type);
+        return book;
+
+    }
+
+    private Type createTypeObject(String type_name) {
+        Type type = new Type();
+        type.setType_name(type_name);
+        return type;
     }
 }

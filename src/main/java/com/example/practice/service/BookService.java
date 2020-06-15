@@ -6,13 +6,15 @@ import com.example.practice.model.Book;
 import java.util.List;
 
 public interface BookService {
-    void createBook(Book book);
+    void createBook(BookTypeDto book);
 
-    void updateBook(Book book);
+    void updateBook(BookTypeDto book);
 
     void removeBook(Book book);
 
     List<BookTypeDto> findAllBooksTypes();
+
+    Book findById(int id);
 
     Book findBookByTitle(String title);
 

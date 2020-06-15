@@ -14,6 +14,8 @@ public interface BookDao {
 
     List<BookTypeDto> findAllBooksTypes();
 
+    Book findById(int id);
+
     Book findBookByTitle(String title);
 
     Number findCount();

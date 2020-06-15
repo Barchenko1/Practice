@@ -16,42 +16,42 @@
 <h1 align="center">Add Book</h1>
 <br/>
 <jsp:include page="navigateBar.jsp" />
-<form:form method="post" action="/book/create" name="userform" >
+<form:form method="post" action="/book/update/${book.book_id}" name="userform" >
     <table>
         <tr>
             <td align="right">Title</td>
             <td>
-                <input name="title" type="text">
+                <input name="title" type="text" value="${book.title}">
             </td>
         </tr>
         <tr>
             <td align="right">Price</td>
             <td>
-                <input name="price" type="number">
+                <input name="price" type="number" value="${book.price}">
             </td>
         </tr>
         <tr>
             <td align="right">Circulation</td>
             <td>
-                <input name="circulation" type="number">
+                <input name="circulation" type="number" value="${book.circulation}">
             </td>
         </tr>
         <tr>
             <td align="right">Advance</td>
             <td>
-                <input name="advance" type="number">
+                <input name="advance" type="number" value="${book.advance}">
             </td>
         </tr>
         <tr>
             <td align="right">Public Date</td>
             <td>
-                <input name="public_date" type="date">
+                <input name="public_date" type="date" value="${book.public_date}">
             </td>
         </tr>
         <tr>
             <td align="right">Type</td>
             <td>
-                <input name="type_name">
+                <input name="type_name" value="${type.type_name}">
             </td>
         </tr>
 

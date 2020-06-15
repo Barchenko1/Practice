@@ -1,5 +1,7 @@
 package com.example.practice.dto;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class BookTypeDto {
@@ -8,6 +10,7 @@ public class BookTypeDto {
     private int price;
     private int circulation;
     private int advance;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date public_date;
     private String type_name;
 
