@@ -7,30 +7,30 @@
 <html>
 <head>
     <%@ include file="/WEB-INF/jspf/head.jspf" %>
-    <link rel="stylesheet" href="../../style/css/bootstrap.css">
-    <link rel="stylesheet" href="../../style/css/st4.css">
-    <link rel="stylesheet" href="../../style/css/myStyles.css">
+    <link rel="stylesheet" href="../../../style/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../style/css/st4.css">
+    <link rel="stylesheet" href="../../../style/css/myStyles.css">
     <title>Books Page</title>
 </head>
 <body>
     <h1 align="center">Add Order</h1>
     <br/>
     <p align="center">
-        Для того что бы соединить таблицы вам нужно вписать номер (№) книги и номер автора
+        Для того что бы обновить таблицы вам нужно вписать номер (№) книги и номер автора
     </p>
     <jsp:include page="navigateBar.jsp" />
-    <form:form method="post" action="/order/create">
+    <form:form method="post" action="/order/update/${order.order_id}">
         <table>
             <tr>
                 <td align="right">Book id</td>
                 <td>
-                    <input name="book_id" type="number">
+                    <input name="book_id" type="number" value="${book_id}">
                 </td>
             </tr>
             <tr>
                 <td align="right">Customer id</td>
                 <td>
-                    <input name="customer_id" type="number">
+                    <input name="customer_id" type="number" value="${customer_id}">
                 </td>
             </tr>
 

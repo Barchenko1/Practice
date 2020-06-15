@@ -13,25 +13,31 @@
 <body>
     <h5 class="logo-text-color text-center p-3">Информация по книгам</h5>
     <jsp:include page="navigateBar.jsp" />
+    <div class="addLink">
+        <a href="/title/create">Add new title</a>
+    </div>
     <table class="tableBorder">
         <tr>
-            <th>№</th>
             <th>title</th>
             <th>price</th>
             <th>circulation</th>
             <th>author name</th>
             <th>author surname</th>
             <th>author pay</th>
+            <th>actions</th>
         </tr>
         <c:forEach var="dto" items="${titleDtoList}" varStatus="i">
             <tr>
-                <td></td>
                 <td>${dto.title}</td>
                 <td>${dto.price}</td>
                 <td>${dto.circulation}</td>
                 <td>${dto.f_name}</td>
                 <td>${dto.l_name}</td>
                 <td>${dto.author_pay}</td>
+                <td>
+                    <a href="/title/update/${dto.book_id}/${dto.author_id}">update</a>
+                    <a href="/title/delete/${dto.book_id}/${dto.author_id}">delete</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

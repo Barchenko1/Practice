@@ -13,4 +13,6 @@ public interface OrderDao {
     void removeOrder(Order order);
 
     List<OrderDto> findAllOrders();
+
+    Order findTitleByBookCustomerId(int book_id, int customer_id);
 }

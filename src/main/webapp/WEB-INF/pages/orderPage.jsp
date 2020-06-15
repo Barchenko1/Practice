@@ -13,9 +13,11 @@
 <body>
     <h5 class="logo-text-color text-center p-3">Наши заказы</h5>
     <jsp:include page="navigateBar.jsp" />
+    <div class="addLink">
+        <a href="/order/create">Add new order</a>
+    </div>
     <table class="tableBorder">
         <tr>
-            <th>№</th>
             <th>title</th>
             <th>price</th>
             <th>circulation</th>
@@ -24,10 +26,10 @@
             <th>customer name</th>
             <th>customer surname</th>
             <th>customer email</th>
+            <th>actions</th>
         </tr>
         <c:forEach var="dto" items="${orderDtoList}" varStatus="i">
             <tr>
-                <td></td>
                 <td>${dto.title}</td>
                 <td>${dto.price}</td>
                 <td>${dto.circulation}</td>
@@ -36,6 +38,10 @@
                 <td>${dto.f_name}</td>
                 <td>${dto.l_name}</td>
                 <td>${dto.email}</td>
+                <td>
+                    <a href="/order/update/${dto.book_id}/${dto.customer_id}">update</a>
+                    <a href="/order/delete/${dto.book_id}/${dto.customer_id}">delete</a>
+                </td>
             </tr>
         </c:forEach>
     </table>
