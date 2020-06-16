@@ -45,5 +45,8 @@
             </tr>
         </c:forEach>
     </table>
+    <p class="addLink">
+        <a href="/order/pdfReport">Generate order PDF proposal</a>
+    </p>
 </body>
 </html>

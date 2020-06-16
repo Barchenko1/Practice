@@ -1,16 +1,21 @@
 package com.example.practice.controller;
 
-import com.example.practice.dto.OrderBookIdDto;
 import com.example.practice.dto.TitleBookIdDto;
 import com.example.practice.dto.TitleDto;
 import com.example.practice.model.Title;
-import com.example.practice.service.AuthorService;
-import com.example.practice.service.BookService;
+import com.example.practice.proposal.GenerateTitlePdfReport;
 import com.example.practice.service.TitleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import static com.example.practice.util.Constants.*;
@@ -92,6 +97,24 @@ public class TitleController {
         modelAndView.addObject("titleDtoList", titleDtoList);
         modelAndView.setViewName(TITLE_PAGE);
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/pdfReport", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<InputStreamResource> citiesReport() {
+
+        List<TitleDto> titleDtoList = titleService.findAllTitles();
+
+        ByteArrayInputStream bis = GenerateTitlePdfReport.pdfReport(titleDtoList);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=pdfReport.pdf");
+
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
     }
 
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)

@@ -2,12 +2,20 @@ package com.example.practice.controller;
 
 import com.example.practice.dto.OrderBookIdDto;
 import com.example.practice.dto.OrderDto;
+import com.example.practice.dto.TitleDto;
 import com.example.practice.model.Order;
+import com.example.practice.proposal.GenerateOrderPdfReport;
+import com.example.practice.proposal.GenerateTitlePdfReport;
 import com.example.practice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import static com.example.practice.util.Constants.*;
@@ -71,6 +79,24 @@ public class OrderController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/order/");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/pdfReport", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<InputStreamResource> citiesReport() {
+
+        List<OrderDto> orderDtoList = orderService.findAllOrder();
+
+        ByteArrayInputStream bis = GenerateOrderPdfReport.pdfReport(orderDtoList);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=pdfReport.pdf");
+
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
     }
 
 }
