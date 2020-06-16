@@ -184,9 +184,6 @@ Miscellaneous
 	border: 2px solid red;	
 }
 
-/***************************************************************
-Login form (login.jsp)
-***************************************************************/
 #login_form > fieldset {
 	display: inline;
 }
