@@ -15,6 +15,9 @@
 <body>
     <h5 class="logo-text-color text-center p-3">Наши книги</h5>
     <jsp:include page="navigateBar.jsp" />
+    <div class="addLink">
+        <a href="/book/create">Add new book</a>
+    </div>
     <jsp:include page="bookFilter.jsp" />
     <table class="tableBorder">
         <tr>

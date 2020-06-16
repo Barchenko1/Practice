@@ -12,7 +12,7 @@
     <title>Customer Page</title>
 </head>
 <body>
-    <h5 class="logo-text-color text-center p-3">Наши заказчики</h5>
+    <h5 class="logo-text-color text-center p-3">Random Request</h5>
     <jsp:include page="navigateBar.jsp" />
     <form:form method="post" action="/randomRequest/execute">
         <table>
