@@ -25,13 +25,6 @@ public class RandomRequestDaoImpl implements RandomRequestDao {
         Iterator it = objectList.iterator();
         Object[] row = null;
         List<Object[]> objects = new ArrayList<>();
-//        while (it.hasNext())
-//        {
-//            row = (Object[]) it.next();
-//            for (Object o : row) {
-//                stringList.add(o.toString());
-//            }
-//        }
         while (it.hasNext()){
             row = (Object[]) it.next();
             objects.add(row);
