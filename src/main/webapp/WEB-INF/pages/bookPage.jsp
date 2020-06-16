@@ -2,6 +2,7 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
 <%@ page import="java.util.ArrayList"%>
 <%@ taglib prefix="myTag" uri="/WEB-INF/table.tld" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
@@ -14,9 +15,7 @@
 <body>
     <h5 class="logo-text-color text-center p-3">Наши книги</h5>
     <jsp:include page="navigateBar.jsp" />
-    <div class="addLink">
-        <a href="/book/create">Add new book</a>
-    </div>
+    <jsp:include page="bookFilter.jsp" />
     <table class="tableBorder">
         <tr>
             <th>№</th>

@@ -10,7 +10,10 @@ import com.example.practice.service.TitleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+
+import static java.util.Objects.isNull;
 
 @Service
 public class TitleServiceImpl implements TitleService {
@@ -58,5 +61,19 @@ public class TitleServiceImpl implements TitleService {
     @Override
     public List<TitleDto> findAllTitles() {
         return titleDao.findAuthorTitleBook();
+    }
+
+    @Override
+    public List<TitleDto> findSearchTitle(String searchString) {
+        List<TitleDto> titleDtoList = titleDao.findSearchTitle(searchString);
+        if (isNull(titleDtoList)) {
+            return Collections.emptyList();
+        }
+        return titleDtoList;
+    }
+
+    @Override
+    public List<TitleDto> findSortedTitle() {
+        return titleDao.findSortedTitle();
     }
 }

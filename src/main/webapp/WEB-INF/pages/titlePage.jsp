@@ -2,6 +2,7 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
 <%@ page import="java.util.ArrayList"%>
 <%@ taglib prefix="myTag" uri="/WEB-INF/table.tld" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
@@ -16,6 +17,24 @@
     <div class="addLink">
         <a href="/title/create">Add new title</a>
     </div>
+    <p class="addLink">
+        <a href="/title/sort">Sort by author name and price</a>
+    </p>
+    <form:form method="post" action="/title/search">
+        <table>
+            <tr>
+                <td align="right">Search by title:</td>
+                <td>
+                    <input name="searchString" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/title/" class="btn btn-success" role="button" aria-pressed="true">Return List</a></p>
+                </td>
+            </tr>
+        </table>
+    </form:form>
     <table class="tableBorder">
         <tr>
             <th>title</th>

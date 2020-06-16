@@ -26,7 +26,14 @@ public class TitleDaoImpl implements TitleDao {
             "  JOIN Books b ON t.book_id=b.book_id\n" +
             "  JOIN Authors a ON t.author_id=a.author_id";
     private static final String FIND_ALL_TITLES_BOOK_AUTHOR_ID = "SELECT * from Titles where book_id=? and author_id=?";
-
+    private static final String FIND_JOINER_BOOKS_AUTHORS_TITLES_SEARCH = "SELECT b.book_id, a.author_id, b.title, b.price, b.circulation, a.f_name, a.l_name, a.author_pay\n" +
+            "FROM Titles t\n" +
+            "  JOIN Books b ON t.book_id=b.book_id\n" +
+            "  JOIN Authors a ON t.author_id=a.author_id where b.title = ?";
+    private static final String FIND_JOINER_BOOKS_AUTHORS_TITLES_SORT = "SELECT b.book_id, a.author_id, b.title, b.price, b.circulation, a.f_name, a.l_name, a.author_pay\n" +
+            "FROM Titles t\n" +
+            "  JOIN Books b ON t.book_id=b.book_id\n" +
+            "  JOIN Authors a ON t.author_id=a.author_id order by a.f_name, b.price";
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -54,7 +61,8 @@ public class TitleDaoImpl implements TitleDao {
                     .update(title);
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }    }
+        }
+    }
 
     @Override
     public void removeTitle(Title title) {
@@ -86,6 +94,31 @@ public class TitleDaoImpl implements TitleDao {
     @Override
     public List<TitleDto> findAuthorTitleBook() {
         NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_JOINER_BOOKS_AUTHORS_TITLES);
+        query.setResultTransformer(Transformers.aliasToBean(TitleDto.class));
+        List<TitleDto> authorTitleBookList = query.getResultList();
+        if (authorTitleBookList.isEmpty()) {
+            return null;
+        }
+        return authorTitleBookList;
+    }
+
+    @Override
+    public List<TitleDto> findSearchTitle(String searchString) {
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_JOINER_BOOKS_AUTHORS_TITLES_SEARCH);
+        query.setParameter(1, searchString);
+        query.setResultTransformer(Transformers.aliasToBean(TitleDto.class));
+        List<TitleDto> titleDto = null;
+        try {
+            titleDto = (List<TitleDto>) query.getResultList();
+        } catch (NoResultException ex) {
+
+        }
+        return titleDto;
+    }
+
+    @Override
+    public List<TitleDto> findSortedTitle() {
+        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(FIND_JOINER_BOOKS_AUTHORS_TITLES_SORT);
         query.setResultTransformer(Transformers.aliasToBean(TitleDto.class));
         List<TitleDto> authorTitleBookList = query.getResultList();
         if (authorTitleBookList.isEmpty()) {

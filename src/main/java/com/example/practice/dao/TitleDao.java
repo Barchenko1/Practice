@@ -15,4 +15,8 @@ public interface TitleDao {
     Title findTitleByBookAuthorId(int book_id, int author_id);
 
     List<TitleDto> findAuthorTitleBook();
+
+    List<TitleDto> findSearchTitle(String searchString);
+
+    List<TitleDto> findSortedTitle();
 }

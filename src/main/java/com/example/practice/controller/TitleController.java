@@ -21,12 +21,6 @@ public class TitleController {
     @Autowired
     private TitleService titleService;
 
-    @Autowired
-    private BookService bookService;
-
-    @Autowired
-    private AuthorService authorService;
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     protected ModelAndView getTypePage() {
         ModelAndView modelAndView = new ModelAndView();
@@ -79,6 +73,24 @@ public class TitleController {
         titleService.removeTitle(title);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/title/");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    protected ModelAndView getSearchPage(@ModelAttribute("searchString") String searchString) {
+        ModelAndView modelAndView = new ModelAndView();
+        List<TitleDto> titleDtoList = titleService.findSearchTitle(searchString);
+        modelAndView.addObject("titleDtoList", titleDtoList);
+        modelAndView.setViewName(TITLE_PAGE);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/sort", method = RequestMethod.GET)
+    protected ModelAndView getSortPage() {
+        ModelAndView modelAndView = new ModelAndView();
+        List<TitleDto> titleDtoList = titleService.findSortedTitle();
+        modelAndView.addObject("titleDtoList", titleDtoList);
+        modelAndView.setViewName(TITLE_PAGE);
         return modelAndView;
     }
 

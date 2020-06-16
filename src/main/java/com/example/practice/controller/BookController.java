@@ -1,14 +1,12 @@
 package com.example.practice.controller;
 
 import com.example.practice.dto.BookTypeDto;
-import com.example.practice.model.Author;
 import com.example.practice.model.Book;
 import com.example.practice.model.Type;
 import com.example.practice.service.BookService;
 import com.example.practice.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,7 +29,9 @@ public class BookController {
     protected ModelAndView getBookPage() {
         ModelAndView modelAndView = new ModelAndView();
         List<BookTypeDto> bookList = bookService.findAllBooksTypes();
+        List<Type> typeList = typeService.findAllTypes();
         modelAndView.addObject("bookList", bookList);
+        modelAndView.addObject("typeList", typeList);
         modelAndView.setViewName(BOOK_PAGE);
         return modelAndView;
     }
@@ -82,10 +82,16 @@ public class BookController {
         return modelAndView;
     }
 
-//    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-//    public List<Book> findBooks() {
-//        return bookService.findAllBooks();
-//    }
+    @RequestMapping(value = "/filter/{type_id}", method = RequestMethod.GET)
+    protected ModelAndView getFilterPage(@PathVariable("type_id") int type_id) {
+        ModelAndView modelAndView = new ModelAndView();
+        List<BookTypeDto> bookList = bookService.findAllBooksByType(type_id);
+        List<Type> typeList = typeService.findAllTypes();
+        modelAndView.addObject("bookList", bookList);
+        modelAndView.addObject("typeList", typeList);
+        modelAndView.setViewName(BOOK_PAGE);
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/find/{title}", method = RequestMethod.GET)
     public Book findBookByTitle(@PathVariable("title") String title) {

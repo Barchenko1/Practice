@@ -56,6 +56,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<BookTypeDto> findAllBooksByType(int id) {
+        return bookDao.findAllBooksByType(id);
+    }
+
+    @Override
     public Book findById(int id) {
         return bookDao.findById(id);
     }
