@@ -43,6 +43,7 @@
             <th>author name</th>
             <th>author surname</th>
             <th>author pay</th>
+            <th>income</th>
             <th>actions</th>
         </tr>
         <c:forEach var="dto" items="${titleDtoList}" varStatus="i">
@@ -53,6 +54,7 @@
                 <td>${dto.f_name}</td>
                 <td>${dto.l_name}</td>
                 <td>${dto.author_pay}</td>
+                <td>${dto.income}</td>
                 <td>
                     <a href="/title/update/${dto.book_id}/${dto.author_id}">update</a>
                     <a href="/title/delete/${dto.book_id}/${dto.author_id}">delete</a>

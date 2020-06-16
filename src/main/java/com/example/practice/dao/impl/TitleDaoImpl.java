@@ -21,7 +21,7 @@ import static java.util.Objects.isNull;
 public class TitleDaoImpl implements TitleDao {
 
     private static final String FIND_ALL_TITLES = "SELECT * from Titles";
-    private static final String FIND_JOINER_BOOKS_AUTHORS_TITLES = "SELECT b.book_id, a.author_id, b.title, b.price, b.circulation, a.f_name, a.l_name, a.author_pay\n" +
+    private static final String FIND_JOINER_BOOKS_AUTHORS_TITLES = "SELECT b.title, b.price, b.circulation, a.f_name, a.l_name, a.author_pay, b.price * b.circulation as income\n" +
             "FROM Titles t\n" +
             "  JOIN Books b ON t.book_id=b.book_id\n" +
             "  JOIN Authors a ON t.author_id=a.author_id";

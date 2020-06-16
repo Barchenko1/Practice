@@ -10,6 +10,7 @@ public class TitleDto {
     private String f_name;
     private String l_name;
     private int author_pay;
+    private Number income;
 
     public TitleDto() {
     }
@@ -76,5 +77,13 @@ public class TitleDto {
 
     public void setAuthor_pay(int author_pay) {
         this.author_pay = author_pay;
+    }
+
+    public Number getIncome() {
+        return income;
+    }
+
+    public void setIncome(Number income) {
+        this.income = income;
     }
 }
