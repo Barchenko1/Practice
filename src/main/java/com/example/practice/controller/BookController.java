@@ -6,7 +6,6 @@ import com.example.practice.model.Type;
 import com.example.practice.service.BookService;
 import com.example.practice.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,7 +14,6 @@ import java.util.List;
 import static com.example.practice.util.Constants.*;
 
 
-@PropertySource(value = "classpath:pages.properties")
 @RestController
 @RequestMapping("/book")
 public class BookController {
