@@ -18,5 +18,7 @@ public interface TitleDao {
 
     List<TitleDto> findSearchTitle(String searchString);
 
-    List<TitleDto> findSortedTitle();
+    List<TitleDto> findSortedTitleAuthor();
+
+    List<TitleDto> findSortedTitlePrice();
 }

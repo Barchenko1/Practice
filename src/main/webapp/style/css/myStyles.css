@@ -9,3 +9,17 @@
 .addLink {
     text-align: center;
 }
+
+.typeListTable {
+    position: absolute;
+    left: 20%;
+    margin-left: 0;
+    margin-right: 10%;
+}
+
+.bookListTable {
+    position: absolute;
+    right: 30%;
+    margin-right: 0;
+    margin-left: 10%;
+}

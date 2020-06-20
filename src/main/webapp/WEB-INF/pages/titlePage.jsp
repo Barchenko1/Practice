@@ -18,7 +18,7 @@
         <a href="/title/create">Add new title</a>
     </div>
     <p class="addLink">
-        <a href="/title/sort">Sort by author name and price</a>
+        Sort by: <a href="/title/sortAuthor">author name</a> <a href="/title/sortPrice">price</a>
     </p>
     <form:form method="post" action="/title/search">
         <table>

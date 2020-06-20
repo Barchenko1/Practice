@@ -90,10 +90,19 @@ public class TitleController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/sort", method = RequestMethod.GET)
-    protected ModelAndView getSortPage() {
+    @RequestMapping(value = "/sortAuthor", method = RequestMethod.GET)
+    protected ModelAndView getSortPageAuthor() {
         ModelAndView modelAndView = new ModelAndView();
-        List<TitleDto> titleDtoList = titleService.findSortedTitle();
+        List<TitleDto> titleDtoList = titleService.findSortedTitleAuthor();
+        modelAndView.addObject("titleDtoList", titleDtoList);
+        modelAndView.setViewName(TITLE_PAGE);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/sortPrice", method = RequestMethod.GET)
+    protected ModelAndView getSortPageTitle() {
+        ModelAndView modelAndView = new ModelAndView();
+        List<TitleDto> titleDtoList = titleService.findSortedTitlePrice();
         modelAndView.addObject("titleDtoList", titleDtoList);
         modelAndView.setViewName(TITLE_PAGE);
         return modelAndView;

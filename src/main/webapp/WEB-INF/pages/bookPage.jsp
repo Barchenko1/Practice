@@ -19,7 +19,7 @@
         <a href="/book/create">Add new book</a>
     </div>
     <jsp:include page="bookFilter.jsp" />
-    <table class="tableBorder">
+    <table class="tableBorder bookListTable">
         <tr>
             <th>№</th>
             <th>title</th>

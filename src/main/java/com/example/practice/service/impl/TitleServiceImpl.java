@@ -73,7 +73,12 @@ public class TitleServiceImpl implements TitleService {
     }
 
     @Override
-    public List<TitleDto> findSortedTitle() {
-        return titleDao.findSortedTitle();
+    public List<TitleDto> findSortedTitleAuthor() {
+        return titleDao.findSortedTitleAuthor();
+    }
+
+    @Override
+    public List<TitleDto> findSortedTitlePrice() {
+        return titleDao.findSortedTitlePrice();
     }
 }

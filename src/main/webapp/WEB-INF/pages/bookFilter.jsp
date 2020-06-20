@@ -14,16 +14,14 @@
 </head>
 <body>
     <div></div>
-    <table class="tableBorder">
+    <table class="tableBorder typeListTable">
         <tr>
-            <th>type</th>
-            <th>actions</th>
+            <th>type filter</th>
         </tr>
         <c:forEach var="type" items="${typeList}" varStatus="i">
             <tr>
-                <td>${type.type_name}</td>
                 <td>
-                    <a href="/book/filter/${type.type_id}">filter</a>
+                    <a href="/book/filter/${type.type_id}">${type.type_name}</a>
                 </td>
             </tr>
         </c:forEach>

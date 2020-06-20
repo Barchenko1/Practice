@@ -20,5 +20,7 @@ public interface TitleService {
 
     List<TitleDto> findSearchTitle(String searchString);
 
-    List<TitleDto> findSortedTitle();
+    List<TitleDto> findSortedTitleAuthor();
+
+    List<TitleDto> findSortedTitlePrice();
 }
