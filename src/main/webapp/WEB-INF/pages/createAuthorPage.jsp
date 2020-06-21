@@ -60,7 +60,18 @@
                 <input name="card_code" type="text">
             </td>
         </tr>
-
+        <tr>
+            <td align="right">Passport code</td>
+            <td>
+                <input name="passport_code" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">INN code</td>
+            <td>
+                <input name="inn_code" type="number">
+            </td>
+        </tr>
         <tr>
             <td>
                 <p><input class="btn btn-success" type="submit" name="Submit" value="OK"> <a href="/author/" class="btn btn-success" role="button" aria-pressed="true">Cancel</a></p>

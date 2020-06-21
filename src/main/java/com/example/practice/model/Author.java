@@ -29,6 +29,10 @@ public class Author {
     private int author_pay;
     @NotNull
     private String card_code;
+    @NotNull
+    private String passport_code;
+    @NotNull
+    private int inn_code;
 
     @OneToMany(
             mappedBy = "author",
@@ -113,5 +117,21 @@ public class Author {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    public String getPassport_code() {
+        return passport_code;
+    }
+
+    public void setPassport_code(String passport_code) {
+        this.passport_code = passport_code;
+    }
+
+    public int getInn_code() {
+        return inn_code;
+    }
+
+    public void setInn_code(int inn_code) {
+        this.inn_code = inn_code;
     }
 }

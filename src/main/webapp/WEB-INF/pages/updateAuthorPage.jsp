@@ -60,6 +60,18 @@
                 <input name="card_code" type="text" value="${author.card_code}">
             </td>
         </tr>
+        <tr>
+            <td align="right">Passport code</td>
+            <td>
+                <input name="passport_code" type="text" value="${author.passport_code}">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">INN code</td>
+            <td>
+                <input name="inn_code" type="number" value="${author.inn_code}">
+            </td>
+        </tr>
 
         <tr>
             <td>

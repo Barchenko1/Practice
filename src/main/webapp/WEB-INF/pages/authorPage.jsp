@@ -25,6 +25,8 @@
             <th>email</th>
             <th>phone</th>
             <th>card code</th>
+            <th>passport code</th>
+            <th>inn code</th>
             <th>actions</th>
 
         </tr>
@@ -37,6 +39,8 @@
                 <td>${author.email}</td>
                 <td>${author.phone}</td>
                 <td>${author.card_code}</td>
+                <td>${author.passport_code}</td>
+                <td>${author.inn_code}</td>
                 <td>
                     <a href="/author/update/${author.author_id}">update</a>
                     <a href="/author/delete/${author.author_id}">delete</a>
