@@ -13,7 +13,7 @@
     <title>Books Page</title>
 </head>
 <body>
-<h1 align="center">Add Book</h1>
+<h1 align="center">Update Book</h1>
 <br/>
 <jsp:include page="navigateBar.jsp" />
 <form:form method="post" action="/book/update/${book.book_id}" name="userform" >

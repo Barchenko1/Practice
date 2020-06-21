@@ -13,7 +13,7 @@
     <title>Books Page</title>
 </head>
 <body>
-    <h1 align="center">Add Title</h1>
+    <h1 align="center">Update Item</h1>
     <br/>
     <p align="center">
         Для того что бы обновить таблицы вам нужно вписать номер (№) книги и номер автора
