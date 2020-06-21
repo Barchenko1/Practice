@@ -63,7 +63,7 @@
         </c:forEach>
     </table>
     <p class="addLink">
-        <a href="/item/pdfReport">Generate title PDF proposal</a>
+        <a href="/item/pdfReport">Generate item PDF proposal</a>
     </p>
 </body>
 </html>
