@@ -22,8 +22,6 @@
             <th>first name</th>
             <th>surname</th>
             <th>age</th>
-            <th>login</th>
-            <th>password</th>
             <th>email</th>
             <th>phone</th>
             <th>actions</th>
@@ -35,8 +33,6 @@
                 <td>${customer.f_name}</td>
                 <td>${customer.l_name}</td>
                 <td>${customer.age}</td>
-                <td>${customer.login}</td>
-                <td>${customer.password}</td>
                 <td>${customer.email}</td>
                 <td>${customer.phone}</td>
                 <td>

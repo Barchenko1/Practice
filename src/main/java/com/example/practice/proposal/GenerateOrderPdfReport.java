@@ -1,8 +1,6 @@
 package com.example.practice.proposal;
 
-import com.example.practice.dao.OrderDao;
 import com.example.practice.dto.OrderDto;
-import com.example.practice.dto.TitleDto;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;

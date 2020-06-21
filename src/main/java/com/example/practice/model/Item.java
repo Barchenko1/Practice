@@ -6,12 +6,12 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Titles")
-public class Title {
+@Table(name = "Items")
+public class Item {
     @Id
-    @Column(name="title_id")
+    @Column(name="item_id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long title_id;
+    private Long item_id;
 
     @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -23,15 +23,15 @@ public class Title {
     @JoinColumn(name = "book_id", nullable = false)
     private Book book;
 
-    public Title() {
+    public Item() {
     }
 
-    public Long getTitle_id() {
-        return title_id;
+    public Long getItem_id() {
+        return item_id;
     }
 
-    public void setTitle_id(Long title_id) {
-        this.title_id = title_id;
+    public void setItem_id(Long item_id) {
+        this.item_id = item_id;
     }
 
     public Author getAuthor() {

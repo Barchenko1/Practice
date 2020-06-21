@@ -2,9 +2,7 @@ package com.example.practice.dao.impl;
 
 import com.example.practice.dao.OrderDao;
 import com.example.practice.dto.OrderDto;
-import com.example.practice.dto.TitleDto;
 import com.example.practice.model.Order;
-import com.example.practice.model.Title;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.transform.Transformers;

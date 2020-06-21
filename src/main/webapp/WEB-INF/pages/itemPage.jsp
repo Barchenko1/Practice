@@ -15,12 +15,12 @@
     <h5 class="logo-text-color text-center p-3">Информация по книгам</h5>
     <jsp:include page="navigateBar.jsp" />
     <div class="addLink">
-        <a href="/title/create">Add new title</a>
+        <a href="/item/create">Add new title</a>
     </div>
     <p class="addLink">
-        Sort by: <a href="/title/sortAuthor">author name</a> <a href="/title/sortPrice">price</a>
+        Sort by: <a href="/item/sortAuthor">author name</a> <a href="/item/sortPrice">price</a>
     </p>
-    <form:form method="post" action="/title/search">
+    <form:form method="post" action="/item/search">
         <table>
             <tr>
                 <td align="right">Search by title:</td>
@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td>
-                    <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/title/" class="btn btn-success" role="button" aria-pressed="true">Return List</a></p>
+                    <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/item/" class="btn btn-success" role="button" aria-pressed="true">Return List</a></p>
                 </td>
             </tr>
         </table>
@@ -46,7 +46,7 @@
             <th>income</th>
             <th>actions</th>
         </tr>
-        <c:forEach var="dto" items="${titleDtoList}" varStatus="i">
+        <c:forEach var="dto" items="${itemDtoList}" varStatus="i">
             <tr>
                 <td>${dto.title}</td>
                 <td>${dto.price}</td>
@@ -56,14 +56,14 @@
                 <td>${dto.author_pay}</td>
                 <td>${dto.income}</td>
                 <td>
-                    <a href="/title/update/${dto.book_id}/${dto.author_id}">update</a>
-                    <a href="/title/delete/${dto.book_id}/${dto.author_id}">delete</a>
+                    <a href="/item/update/${dto.book_id}/${dto.author_id}">update</a>
+                    <a href="/item/delete/${dto.book_id}/${dto.author_id}">delete</a>
                 </td>
             </tr>
         </c:forEach>
     </table>
     <p class="addLink">
-        <a href="/title/pdfReport">Generate title PDF proposal</a>
+        <a href="/item/pdfReport">Generate title PDF proposal</a>
     </p>
 </body>
 </html>

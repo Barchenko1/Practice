@@ -1,6 +1,6 @@
 package com.example.practice.proposal;
 
-import com.example.practice.dto.TitleDto;
+import com.example.practice.dto.ItemDto;
 import org.springframework.stereotype.Component;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -19,7 +19,7 @@ import java.util.List;
 @Component
 public class GenerateTitlePdfReport {
 
-    public static ByteArrayInputStream pdfReport(List<TitleDto> titleDtoList) {
+    public static ByteArrayInputStream pdfReport(List<ItemDto> itemDtoList) {
 
         Document document = new Document();
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -61,46 +61,46 @@ public class GenerateTitlePdfReport {
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            for (TitleDto titleDto : titleDtoList) {
+            for (ItemDto itemDto : itemDtoList) {
 
                 PdfPCell cell;
 
-                cell = new PdfPCell(new Phrase(titleDto.getTitle()));
+                cell = new PdfPCell(new Phrase(itemDto.getTitle()));
                 cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(String.valueOf(titleDto.getPrice())));
+                cell = new PdfPCell(new Phrase(String.valueOf(itemDto.getPrice())));
                 cell.setPaddingLeft(5);
                 cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cell.setHorizontalAlignment(Element.ALIGN_LEFT);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(String.valueOf(titleDto.getCirculation())));
+                cell = new PdfPCell(new Phrase(String.valueOf(itemDto.getCirculation())));
                 cell.setPaddingLeft(5);
                 cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cell.setHorizontalAlignment(Element.ALIGN_LEFT);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(titleDto.getF_name()));
+                cell = new PdfPCell(new Phrase(itemDto.getF_name()));
                 cell.setPaddingLeft(5);
                 cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(titleDto.getL_name()));
+                cell = new PdfPCell(new Phrase(itemDto.getL_name()));
                 cell.setPaddingLeft(5);
                 cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(String.valueOf(titleDto.getAuthor_pay())));
+                cell = new PdfPCell(new Phrase(String.valueOf(itemDto.getAuthor_pay())));
                 cell.setPaddingLeft(5);
                 cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cell.setHorizontalAlignment(Element.ALIGN_LEFT);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(String.valueOf(titleDto.getIncome())));
+                cell = new PdfPCell(new Phrase(String.valueOf(itemDto.getIncome())));
                 cell.setPaddingLeft(5);
                 cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cell.setHorizontalAlignment(Element.ALIGN_LEFT);

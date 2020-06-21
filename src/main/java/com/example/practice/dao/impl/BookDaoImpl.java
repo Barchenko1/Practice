@@ -2,7 +2,6 @@ package com.example.practice.dao.impl;
 
 import com.example.practice.dao.BookDao;
 import com.example.practice.dto.BookTypeDto;
-import com.example.practice.dto.TitleDto;
 import com.example.practice.model.Book;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;

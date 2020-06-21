@@ -37,18 +37,6 @@
             </td>
         </tr>
         <tr>
-            <td align="right">Login</td>
-            <td>
-                <input name="login" type="text" value="${customer.login}">
-            </td>
-        </tr>
-        <tr>
-            <td align="right">Password</td>
-            <td>
-                <input name="password" type="password" value="${customer.password}">
-            </td>
-        </tr>
-        <tr>
             <td align="right">Email</td>
             <td>
                 <input name="email" type="email" value="${customer.email}">

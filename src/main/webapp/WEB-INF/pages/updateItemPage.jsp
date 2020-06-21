@@ -7,36 +7,36 @@
 <html>
 <head>
     <%@ include file="/WEB-INF/jspf/head.jspf" %>
-    <link rel="stylesheet" href="../../style/css/bootstrap.css">
-    <link rel="stylesheet" href="../../style/css/st4.css">
-    <link rel="stylesheet" href="../../style/css/myStyles.css">
+    <link rel="stylesheet" href="../../../style/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../style/css/st4.css">
+    <link rel="stylesheet" href="../../../style/css/myStyles.css">
     <title>Books Page</title>
 </head>
 <body>
     <h1 align="center">Add Title</h1>
     <br/>
     <p align="center">
-        Для того что бы соединить таблицы вам нужно вписать номер (№) книги и номер автора
+        Для того что бы обновить таблицы вам нужно вписать номер (№) книги и номер автора
     </p>
     <jsp:include page="navigateBar.jsp" />
-    <form:form method="post" action="/title/create">
+    <form:form method="post" action="/item/update/${item.item_id}">
         <table>
             <tr>
                 <td align="right">Book id</td>
                 <td>
-                    <input name="book_id" type="number">
+                    <input name="book_id" type="number" value="${book_id}">
                 </td>
             </tr>
             <tr>
                 <td align="right">Author id</td>
                 <td>
-                    <input name="author_id" type="number">
+                    <input name="author_id" type="number" value="${author_id}">
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/title/" class="btn btn-success" role="button" aria-pressed="true">Cancel</a></p>
+                    <p><input class="btn btn-success" method="post" type="submit" name="Submit" value="OK"> <a href="/item/" class="btn btn-success" role="button" aria-pressed="true">Cancel</a></p>
                 </td>
             </tr>
         </table>

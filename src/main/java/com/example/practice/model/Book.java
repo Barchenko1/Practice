@@ -39,7 +39,7 @@ public class Book {
     )
     @Fetch(FetchMode.SELECT)
     @BatchSize(size = 30)
-    private List<Title> titles = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
     @OneToMany(
             mappedBy = "book",
@@ -110,12 +110,12 @@ public class Book {
         this.type = type;
     }
 
-    public List<Title> getTitles() {
-        return titles;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setTitles(List<Title> titles) {
-        this.titles = titles;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
     public List<Order> getOrders() {

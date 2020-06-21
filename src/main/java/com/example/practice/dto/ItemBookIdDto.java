@@ -1,6 +1,6 @@
 package com.example.practice.dto;
 
-public class TitleBookIdDto {
+public class ItemBookIdDto {
     private int book_id;
     private int author_id;
 

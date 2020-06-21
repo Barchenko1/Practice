@@ -2,10 +2,8 @@ package com.example.practice.controller;
 
 import com.example.practice.dto.OrderBookIdDto;
 import com.example.practice.dto.OrderDto;
-import com.example.practice.dto.TitleDto;
 import com.example.practice.model.Order;
 import com.example.practice.proposal.GenerateOrderPdfReport;
-import com.example.practice.proposal.GenerateTitlePdfReport;
 import com.example.practice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;

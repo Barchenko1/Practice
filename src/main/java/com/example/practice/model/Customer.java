@@ -18,8 +18,6 @@ public class Customer {
     private String f_name;
     private String l_name;
     private int age;
-    private String login;
-    private String password;
     private String email;
     private String phone;
 
@@ -66,22 +64,6 @@ public class Customer {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {

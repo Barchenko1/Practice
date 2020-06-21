@@ -91,8 +91,8 @@ public class BookController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/find/{title}", method = RequestMethod.GET)
-    public Book findBookByTitle(@PathVariable("title") String title) {
+    @RequestMapping(value = "/find/{item}", method = RequestMethod.GET)
+    public Book findBookByTitle(@PathVariable("item") String title) {
         return bookService.findBookByTitle(title);
     }
 }
