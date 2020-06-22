@@ -20,13 +20,9 @@ public class GenerateOrderPdfReport {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         try {
-
             PdfPTable table = new PdfPTable(8);
             table.setWidthPercentage(60);
-//            table.setWidths(new int[]{1, 7, 7});
-
             Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
-
             PdfPCell hcell;
             hcell = new PdfPCell(new Phrase("Title", headFont));
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
